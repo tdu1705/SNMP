@@ -153,24 +153,3 @@ df = pd.DataFrame(data)
 #wyświetlanie tabeli
 print(df)
 print('\n')
-
-#pitn("\n\n\n\n")
-#print('SysName: ',result_sysname,'\tSysContact: ',result_syscontact,'\tSysLocation',result_syslocation,\
-#        "\nMFLB: ",result_mflb,'\tModel: ',result_model,'\tSerialNumber: ',result_serialnumber,\
-#        '\nVendor: ',result_vendor,\
-#        '\nFW Version: ',result_fwversion,'\tHW Version: ',result_hwversion,\
-#        '\nCzas dzialania: ',result_uptime)
-
-#print("\n\nAdres IPv4: ",result_ip[0],".",result_ip[1],".",result_ip[2],".",result_ip[3],\
-#        '\nMaska: ',result_mask[0],".",result_mask[1],".",result_mask[2],".",result_mask[3],\
-#       '\nAdres gateway: ',result_gateway[0],".",result_gateway[1],".",result_gateway[2],".",result_gateway[3])
-
-
-#print("\n\nRola w ringu MRP: ",(result_mrprole),\
-#        "\nNazwa domeny MRP: ",result_mrpdomain,\
-#        "\nPort numer 1 w ringu: ", result_mrpring1, "\tStatus portu: ",result_mrpring1_state,\
-#        "\nPort numer 2 w ringu: ", result_mrpring2, "\tStatus portu: ",result_mrpring2_state,\
-#        "\nOpenCount Ring MRP: ",result_opencount, "\tCzas otawrcia ringu: ",result_timeopenring,\
-#        "\nMaksymalny czas przelaczania: ",result_tripdelaymax,"\tMinimalny czas przelaczania: ",result_tripdelaymin)
-
-
