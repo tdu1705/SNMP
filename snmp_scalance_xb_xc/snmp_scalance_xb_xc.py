@@ -4,7 +4,7 @@ import pandas as pd
 
 
     #adres ip
-ip = "192.168.100.12"
+ip = "192.168.100.11"
     #community
 community = "public_snmp"
 
@@ -24,10 +24,10 @@ result_mflb = get(ip, community, oid)
     #SerialNumber
 oid = '1.3.6.1.4.1.4329.6.3.2.1.1.3.0'
 result_serialnumber = get(ip, community, oid)
-    #nazwa urz¹dzenia
+    #nazwa urzï¿½dzenia
 oid = '1.3.6.1.2.1.1.1.0'
 result_model = get(ip, community, oid)
-        #szukanie pocz¹tku odpowiedniej nazwy
+        #szukanie poczï¿½tku odpowiedniej nazwy
 find_s1 = result_model.find(b'SCALANCE')
 #find_s1 = result_model.partition('SCALANCE')
 result_model = result_model[find_s1:37]
@@ -42,14 +42,14 @@ result_fwversion = get(ip, community, oid)
     #HW Version
 oid = '1.3.6.1.4.1.4329.6.3.2.1.1.4.0'
 result_hwversion = get(ip, community, oid)
-    #czas dzia³ania urz¹dzenia sysUpTime
+    #czas dziaï¿½ania urzï¿½dzenia sysUpTime
 oid = '1.3.6.1.2.1.1.3.0'
 result_uptime = get(ip, community, oid)
 
 
 
 
-#adresacja IP urz¹dzenai
+#adresacja IP urzï¿½dzenai
     #adresy IPv4
 oid = '1.3.6.1.4.1.4329.6.3.2.1.4.1.0'
 result_ip = get(ip, community, oid)
@@ -68,7 +68,7 @@ result_gateway = int(result_gateway[0]),int(result_gateway[1]),int(result_gatewa
 
 #mrp
 
-#Rola urz¹dzenia w ringu
+#Rola urzï¿½dzenia w ringu
 oid = '1.0.62439.1.1.1.1.5.1'
 result_mrprole = get(ip, community, oid)
 if result_mrprole == 1 or result_mrprole == 2 or result_mrprole == 3:
@@ -139,7 +139,7 @@ if result_mrprole == 1 or result_mrprole == 2 or result_mrprole == 3:
                                 result_uptime,result_ip,result_mask,result_gateway,result_mrprole,result_mrpdomain,result_mrpring1,result_mrpring1_state,result_mrpring2,result_mrpring2_state,result_opencount, result_timeopenring,result_tripdelaymax,result_tripdelaymin]}
 
 elif result_mrprole == 0:
-    result_mrprole = 'Ring disable' #rola w ringu - wy³¹czony ring
+    result_mrprole = 'Ring disable' #rola w ringu - wyï¿½ï¿½czony ring
 
     data = {'opis': ['SysName','SysContact','SysLocation','MFLB','Model','SerialNumber','Vendor','FW Version','HW Version','Czas dzialania switcha od uruchomienia',\
                 'Adres IPv4','Maska','Adres gateway','Rola w ringu MRP'],
@@ -150,7 +150,7 @@ elif result_mrprole == 0:
 
 df = pd.DataFrame(data)
 
-#wyœwietlanie tabeli
+#wyï¿½wietlanie tabeli
 print(df)
 print('\n')
 
