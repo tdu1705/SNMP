@@ -1,4 +1,4 @@
-    #biblioteka
+    #wykorzystane biblioteki
 from puresnmp import get
 import pandas as pd
 
@@ -27,7 +27,7 @@ result_serialnumber = get(ip, community, oid)
     #nazwa urz�dzenia
 oid = '1.3.6.1.2.1.1.1.0'
 result_model = get(ip, community, oid)
-        #szukanie pocz�tku odpowiedniej nazwy
+        #szukanie początku odpowiedniej nazwy
 find_s1 = result_model.find(b'SCALANCE')
 #find_s1 = result_model.partition('SCALANCE')
 result_model = result_model[find_s1:37]
@@ -49,7 +49,7 @@ result_uptime = get(ip, community, oid)
 
 
 
-#adresacja IP urz�dzenai
+#adresacja IP urządzenai
     #adresy IPv4
 oid = '1.3.6.1.4.1.4329.6.3.2.1.4.1.0'
 result_ip = get(ip, community, oid)
@@ -68,7 +68,7 @@ result_gateway = int(result_gateway[0]),int(result_gateway[1]),int(result_gatewa
 
 #mrp
 
-#Rola urz�dzenia w ringu
+#Rola urządzenia w ringu
 oid = '1.0.62439.1.1.1.1.5.1'
 result_mrprole = get(ip, community, oid)
 if result_mrprole == 1 or result_mrprole == 2 or result_mrprole == 3:
@@ -139,7 +139,7 @@ if result_mrprole == 1 or result_mrprole == 2 or result_mrprole == 3:
                                 result_uptime,result_ip,result_mask,result_gateway,result_mrprole,result_mrpdomain,result_mrpring1,result_mrpring1_state,result_mrpring2,result_mrpring2_state,result_opencount, result_timeopenring,result_tripdelaymax,result_tripdelaymin]}
 
 elif result_mrprole == 0:
-    result_mrprole = 'Ring disable' #rola w ringu - wy��czony ring
+    result_mrprole = 'Ring disable' #rola w ringu - wyłączony ring
 
     data = {'opis': ['SysName','SysContact','SysLocation','MFLB','Model','SerialNumber','Vendor','FW Version','HW Version','Czas dzialania switcha od uruchomienia',\
                 'Adres IPv4','Maska','Adres gateway','Rola w ringu MRP'],
@@ -150,27 +150,7 @@ elif result_mrprole == 0:
 
 df = pd.DataFrame(data)
 
-#wy�wietlanie tabeli
+#wyświetlanie tabeli
 print(df)
 print('\n')
-
-#pitn("\n\n\n\n")
-#print('SysName: ',result_sysname,'\tSysContact: ',result_syscontact,'\tSysLocation',result_syslocation,\
-#        "\nMFLB: ",result_mflb,'\tModel: ',result_model,'\tSerialNumber: ',result_serialnumber,\
-#        '\nVendor: ',result_vendor,\
-#        '\nFW Version: ',result_fwversion,'\tHW Version: ',result_hwversion,\
-#        '\nCzas dzialania: ',result_uptime)
-
-#print("\n\nAdres IPv4: ",result_ip[0],".",result_ip[1],".",result_ip[2],".",result_ip[3],\
-#        '\nMaska: ',result_mask[0],".",result_mask[1],".",result_mask[2],".",result_mask[3],\
-#       '\nAdres gateway: ',result_gateway[0],".",result_gateway[1],".",result_gateway[2],".",result_gateway[3])
-
-
-#print("\n\nRola w ringu MRP: ",(result_mrprole),\
-#        "\nNazwa domeny MRP: ",result_mrpdomain,\
-#        "\nPort numer 1 w ringu: ", result_mrpring1, "\tStatus portu: ",result_mrpring1_state,\
-#        "\nPort numer 2 w ringu: ", result_mrpring2, "\tStatus portu: ",result_mrpring2_state,\
-#        "\nOpenCount Ring MRP: ",result_opencount, "\tCzas otawrcia ringu: ",result_timeopenring,\
-#        "\nMaksymalny czas przelaczania: ",result_tripdelaymax,"\tMinimalny czas przelaczania: ",result_tripdelaymin)
-
 
