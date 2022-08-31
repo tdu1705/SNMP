@@ -1,9 +1,9 @@
-    #biblioteka
+    #biblioteka wykorzystywane
 from puresnmp import get
 import pandas as pd
 
 
-    #adres ip
+    #adres ip SCALANCE X
 ip = "192.168.100.11"
     #community
 community = "public_snmp"
@@ -123,11 +123,11 @@ if result_mrprole == 1 or result_mrprole == 2 or result_mrprole == 3:
     #czas otwarcia ringu
     oid = '1.0.62439.1.1.1.1.16.1'
     result_timeopenring = get(ip, community, oid)
-    #???? Maksymalny czas przelaczenia???
+    #Maksymalny czas przelaczenia
     oid = '1.0.62439.1.1.1.1.17.1'
     result_tripdelaymax = get(ip, community, oid)
 
-    #???? Minimalny czas przelaczenia???
+    #Minimalny czas przelaczenia
     oid = '1.0.62439.1.1.1.1.18.1'
     result_tripdelaymin = get(ip, community, oid)
 
