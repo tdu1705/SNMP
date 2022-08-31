@@ -1,9 +1,9 @@
 # SNMP
 
-# PL
+## PL
 Pobieranie informacji za pomocą SNMP ze switchy SCALANCE X.
 
-# ENG
+## ENG
 Getting information via SNMP from SCALANCE X switches.
 
 Testy odbyły się na sprzęcie / The tests took place on equipment
