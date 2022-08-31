@@ -1,0 +1,531 @@
+;DO NOT CHANGE lines between BEGIN and END
+;BEGIN
+;MODULE=RFC-1212=C:\Programme\SIEMENS\Step7\S7DATA\snmp\mib\RFC-1212.mib
+;MODULE=RFC-1215=C:\Programme\SIEMENS\Step7\S7DATA\snmp\mib\RFC-1215.mib
+;MODULE=RFC1155-SMI=C:\Programme\SIEMENS\Step7\S7DATA\snmp\mib\RFC1155-SMI.mib
+;MODULE=RFC1213-MIB=C:\Programme\SIEMENS\Step7\S7DATA\snmp\mib\RFC1213-MIB.mib
+;MODULE=SN-SCALANCEX200-PRIV-MIB=C:\Programme\SIEMENS\Step7\S7DATA\snmp\mib\snScalanceX200.mib
+;END
+
+;OPC Profile for Scalance X208 and X2008 PRO
+
+;MainItems have to be the first items in file
+
+;Items for RFC1213-MIB
+;Full path: iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1)
+
+[mib-2 system]
+;Full path: iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1).system(1)
+SNMPItem=sysContact|RW|.1.3.6.1.2.1.1.4.0|04|The textual identification of the contact person for this managed node, together with information on how to contact this person.
+SNMPItem=sysDescr|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.4.1.0|04|A textual description of the entity. This value should include the full name and version identification of the system's hardware type, software operating-system, and networking software. It is mandatory that this only contain printable ASCII characters.
+SNMPItem=sysLocation|RW|.1.3.6.1.2.1.1.6.0|04|The physical location of this node (e.g., `telephone closet, 3rd floor').
+SNMPItem=sysName|RW|.1.3.6.1.2.1.1.5.0|04|An administratively-assigned name for this managed node. By convention, this is the node's fully-qualified domain name.
+SNMPItem=sysObjectID|R|.1.3.6.1.2.1.1.2.0|06|The vendor's authoritative identification of the network management subsystem contained in the entity. This value is allocated within the SMI enterprises subtree (1.3.6.1.4.1) and provides an easy and unambiguous means for determining `what kind of box' is being managed. For example, if vendor `Flintstones, Inc.' was assigned the subtree 1.3.6.1.4.1.4242, it could assign the identifier 1.3.6.1.4.1.4242.1.1 to its `Fred Router'.
+SNMPItem=sysServices|R|.1.3.6.1.2.1.1.7.0|02|A value which indicates the set of services that this entity primarily offers. The value is a sum. This sum initially takes the value zero, Then, for each layer, L, in the range 1 through 7, that this node performs transactions for, 2 raised to (L - 1) is added to the sum. For example, a node which performs primarily routing functions would have a value of 4 (2^(3-1)). In contrast, a node which is a host offering application services would have a value of 72 (2^(4-1) + 2^(7-1)). Note that in the context of the Internet suite of protocols, values should be calculated accordingly: layer functionality 1 physical (e.g., repeaters) 2 datalink/subnetwork (e.g., bridges) 3 internet (e.g., IP gateways) 4 end-to-end (e.g., IP hosts) 7 applications (e.g., mail relays) For systems including OSI protocols, layers 5 and 6 may also be counted.
+SNMPItem=sysUpTime|R|.1.3.6.1.2.1.1.3.0|43|The time (in hundredths of a second) since the network management portion of the system was last re-initialized.
+
+[mib-2 interfaces]
+;Full path: iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1).interfaces(2)
+SNMPItem=ifNumber|R|.1.3.6.1.2.1.2.1.0|02|The number of network interfaces (regardless of their current state) present on this system.
+SNMPItem=ifIndex.1|R|.1.3.6.1.2.1.2.2.1.1.1|02|A unique value for each interface. Its value ranges between 1 and the value of ifNumber. The value for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re- initialization.
+SNMPItem=ifIndex.2|R|.1.3.6.1.2.1.2.2.1.1.2|02|A unique value for each interface. Its value ranges between 1 and the value of ifNumber. The value for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re- initialization.
+SNMPItem=ifIndex.3|R|.1.3.6.1.2.1.2.2.1.1.3|02|A unique value for each interface. Its value ranges between 1 and the value of ifNumber. The value for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re- initialization.
+SNMPItem=ifIndex.4|R|.1.3.6.1.2.1.2.2.1.1.4|02|A unique value for each interface. Its value ranges between 1 and the value of ifNumber. The value for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re- initialization.
+SNMPItem=ifIndex.5|R|.1.3.6.1.2.1.2.2.1.1.5|02|A unique value for each interface. Its value ranges between 1 and the value of ifNumber. The value for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re- initialization.
+SNMPItem=ifIndex.6|R|.1.3.6.1.2.1.2.2.1.1.6|02|A unique value for each interface. Its value ranges between 1 and the value of ifNumber. The value for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re- initialization.
+SNMPItem=ifIndex.7|R|.1.3.6.1.2.1.2.2.1.1.7|02|A unique value for each interface. Its value ranges between 1 and the value of ifNumber. The value for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re- initialization.
+SNMPItem=ifIndex.8|R|.1.3.6.1.2.1.2.2.1.1.8|02|A unique value for each interface. Its value ranges between 1 and the value of ifNumber. The value for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re- initialization.
+SNMPItem=ifDescr.1|R|.1.3.6.1.2.1.2.2.1.2.1|04|A textual string containing information about the interface. This string should include the name of the manufacturer, the product name and the version of the hardware interface.
+SNMPItem=ifDescr.2|R|.1.3.6.1.2.1.2.2.1.2.2|04|A textual string containing information about the interface. This string should include the name of the manufacturer, the product name and the version of the hardware interface.
+SNMPItem=ifDescr.3|R|.1.3.6.1.2.1.2.2.1.2.3|04|A textual string containing information about the interface. This string should include the name of the manufacturer, the product name and the version of the hardware interface.
+SNMPItem=ifDescr.4|R|.1.3.6.1.2.1.2.2.1.2.4|04|A textual string containing information about the interface. This string should include the name of the manufacturer, the product name and the version of the hardware interface.
+SNMPItem=ifDescr.5|R|.1.3.6.1.2.1.2.2.1.2.5|04|A textual string containing information about the interface. This string should include the name of the manufacturer, the product name and the version of the hardware interface.
+SNMPItem=ifDescr.6|R|.1.3.6.1.2.1.2.2.1.2.6|04|A textual string containing information about the interface. This string should include the name of the manufacturer, the product name and the version of the hardware interface.
+SNMPItem=ifDescr.7|R|.1.3.6.1.2.1.2.2.1.2.7|04|A textual string containing information about the interface. This string should include the name of the manufacturer, the product name and the version of the hardware interface.
+SNMPItem=ifDescr.8|R|.1.3.6.1.2.1.2.2.1.2.8|04|A textual string containing information about the interface. This string should include the name of the manufacturer, the product name and the version of the hardware interface.
+SNMPItem=ifType.1|R|.1.3.6.1.2.1.2.2.1.3.1|02|The type of interface, distinguished according to the physical/link protocol(s) immediately `below' the network layer in the protocol stack.
+SNMPItem=ifType.2|R|.1.3.6.1.2.1.2.2.1.3.2|02|The type of interface, distinguished according to the physical/link protocol(s) immediately `below' the network layer in the protocol stack.
+SNMPItem=ifType.3|R|.1.3.6.1.2.1.2.2.1.3.3|02|The type of interface, distinguished according to the physical/link protocol(s) immediately `below' the network layer in the protocol stack.
+SNMPItem=ifType.4|R|.1.3.6.1.2.1.2.2.1.3.4|02|The type of interface, distinguished according to the physical/link protocol(s) immediately `below' the network layer in the protocol stack.
+SNMPItem=ifType.5|R|.1.3.6.1.2.1.2.2.1.3.5|02|The type of interface, distinguished according to the physical/link protocol(s) immediately `below' the network layer in the protocol stack.
+SNMPItem=ifType.6|R|.1.3.6.1.2.1.2.2.1.3.6|02|The type of interface, distinguished according to the physical/link protocol(s) immediately `below' the network layer in the protocol stack.
+SNMPItem=ifType.7|R|.1.3.6.1.2.1.2.2.1.3.7|02|The type of interface, distinguished according to the physical/link protocol(s) immediately `below' the network layer in the protocol stack.
+SNMPItem=ifType.8|R|.1.3.6.1.2.1.2.2.1.3.8|02|The type of interface, distinguished according to the physical/link protocol(s) immediately `below' the network layer in the protocol stack.
+SNMPItem=ifMtu.1|R|.1.3.6.1.2.1.2.2.1.4.1|02|The size of the largest datagram which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.
+SNMPItem=ifMtu.2|R|.1.3.6.1.2.1.2.2.1.4.2|02|The size of the largest datagram which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.
+SNMPItem=ifMtu.3|R|.1.3.6.1.2.1.2.2.1.4.3|02|The size of the largest datagram which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.
+SNMPItem=ifMtu.4|R|.1.3.6.1.2.1.2.2.1.4.4|02|The size of the largest datagram which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.
+SNMPItem=ifMtu.5|R|.1.3.6.1.2.1.2.2.1.4.5|02|The size of the largest datagram which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.
+SNMPItem=ifMtu.6|R|.1.3.6.1.2.1.2.2.1.4.6|02|The size of the largest datagram which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.
+SNMPItem=ifMtu.7|R|.1.3.6.1.2.1.2.2.1.4.7|02|The size of the largest datagram which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.
+SNMPItem=ifMtu.8|R|.1.3.6.1.2.1.2.2.1.4.8|02|The size of the largest datagram which can be sent/received on the interface, specified in octets. For interfaces that are used for transmitting network datagrams, this is the size of the largest network datagram that can be sent on the interface.
+SNMPItem=ifSpeed.1|R|.1.3.6.1.2.1.2.2.1.5.1|42|An estimate of the interface's current bandwidth in bits per second. For interfaces which do not vary in bandwidth or for those where no accurate estimation can be made, this object should contain the nominal bandwidth.
+SNMPItem=ifSpeed.2|R|.1.3.6.1.2.1.2.2.1.5.2|42|An estimate of the interface's current bandwidth in bits per second. For interfaces which do not vary in bandwidth or for those where no accurate estimation can be made, this object should contain the nominal bandwidth.
+SNMPItem=ifSpeed.3|R|.1.3.6.1.2.1.2.2.1.5.3|42|An estimate of the interface's current bandwidth in bits per second. For interfaces which do not vary in bandwidth or for those where no accurate estimation can be made, this object should contain the nominal bandwidth.
+SNMPItem=ifSpeed.4|R|.1.3.6.1.2.1.2.2.1.5.4|42|An estimate of the interface's current bandwidth in bits per second. For interfaces which do not vary in bandwidth or for those where no accurate estimation can be made, this object should contain the nominal bandwidth.
+SNMPItem=ifSpeed.5|R|.1.3.6.1.2.1.2.2.1.5.5|42|An estimate of the interface's current bandwidth in bits per second. For interfaces which do not vary in bandwidth or for those where no accurate estimation can be made, this object should contain the nominal bandwidth.
+SNMPItem=ifSpeed.6|R|.1.3.6.1.2.1.2.2.1.5.6|42|An estimate of the interface's current bandwidth in bits per second. For interfaces which do not vary in bandwidth or for those where no accurate estimation can be made, this object should contain the nominal bandwidth.
+SNMPItem=ifSpeed.7|R|.1.3.6.1.2.1.2.2.1.5.7|42|An estimate of the interface's current bandwidth in bits per second. For interfaces which do not vary in bandwidth or for those where no accurate estimation can be made, this object should contain the nominal bandwidth.
+SNMPItem=ifSpeed.8|R|.1.3.6.1.2.1.2.2.1.5.8|42|An estimate of the interface's current bandwidth in bits per second. For interfaces which do not vary in bandwidth or for those where no accurate estimation can be made, this object should contain the nominal bandwidth.
+SNMPItem=ifPhysAddress.1|R|.1.3.6.1.2.1.2.2.1.6.1|04|The interface's address at the protocol layer immediately `below' the network layer in the protocol stack. For interfaces which do not have such an address (e.g., a serial line), this object should contain an octet string of zero length.
+SNMPItem=ifPhysAddress.2|R|.1.3.6.1.2.1.2.2.1.6.2|04|The interface's address at the protocol layer immediately `below' the network layer in the protocol stack. For interfaces which do not have such an address (e.g., a serial line), this object should contain an octet string of zero length.
+SNMPItem=ifPhysAddress.3|R|.1.3.6.1.2.1.2.2.1.6.3|04|The interface's address at the protocol layer immediately `below' the network layer in the protocol stack. For interfaces which do not have such an address (e.g., a serial line), this object should contain an octet string of zero length.
+SNMPItem=ifPhysAddress.4|R|.1.3.6.1.2.1.2.2.1.6.4|04|The interface's address at the protocol layer immediately `below' the network layer in the protocol stack. For interfaces which do not have such an address (e.g., a serial line), this object should contain an octet string of zero length.
+SNMPItem=ifPhysAddress.5|R|.1.3.6.1.2.1.2.2.1.6.5|04|The interface's address at the protocol layer immediately `below' the network layer in the protocol stack. For interfaces which do not have such an address (e.g., a serial line), this object should contain an octet string of zero length.
+SNMPItem=ifPhysAddress.6|R|.1.3.6.1.2.1.2.2.1.6.6|04|The interface's address at the protocol layer immediately `below' the network layer in the protocol stack. For interfaces which do not have such an address (e.g., a serial line), this object should contain an octet string of zero length.
+SNMPItem=ifPhysAddress.7|R|.1.3.6.1.2.1.2.2.1.6.7|04|The interface's address at the protocol layer immediately `below' the network layer in the protocol stack. For interfaces which do not have such an address (e.g., a serial line), this object should contain an octet string of zero length.
+SNMPItem=ifPhysAddress.8|R|.1.3.6.1.2.1.2.2.1.6.8|04|The interface's address at the protocol layer immediately `below' the network layer in the protocol stack. For interfaces which do not have such an address (e.g., a serial line), this object should contain an octet string of zero length.
+SNMPItem=ifAdminStatus.1|RW|.1.3.6.1.2.1.2.2.1.7.1|02|The desired state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifAdminStatus.2|RW|.1.3.6.1.2.1.2.2.1.7.2|02|The desired state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifAdminStatus.3|RW|.1.3.6.1.2.1.2.2.1.7.3|02|The desired state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifAdminStatus.4|RW|.1.3.6.1.2.1.2.2.1.7.4|02|The desired state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifAdminStatus.5|RW|.1.3.6.1.2.1.2.2.1.7.5|02|The desired state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifAdminStatus.6|RW|.1.3.6.1.2.1.2.2.1.7.6|02|The desired state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifAdminStatus.7|RW|.1.3.6.1.2.1.2.2.1.7.7|02|The desired state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifAdminStatus.8|RW|.1.3.6.1.2.1.2.2.1.7.8|02|The desired state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifOperStatus.1|R|.1.3.6.1.2.1.2.2.1.8.1|02|The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifOperStatus.2|R|.1.3.6.1.2.1.2.2.1.8.2|02|The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifOperStatus.3|R|.1.3.6.1.2.1.2.2.1.8.3|02|The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifOperStatus.4|R|.1.3.6.1.2.1.2.2.1.8.4|02|The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifOperStatus.5|R|.1.3.6.1.2.1.2.2.1.8.5|02|The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifOperStatus.6|R|.1.3.6.1.2.1.2.2.1.8.6|02|The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifOperStatus.7|R|.1.3.6.1.2.1.2.2.1.8.7|02|The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifOperStatus.8|R|.1.3.6.1.2.1.2.2.1.8.8|02|The current operational state of the interface. The testing(3) state indicates that no operational packets can be passed.
+SNMPItem=ifLastChange.1|R|.1.3.6.1.2.1.2.2.1.9.1|43|The value of sysUpTime at the time the interface entered its current operational state. If the current state was entered prior to the last re- initialization of the local network management subsystem, then this object contains a zero value.
+SNMPItem=ifLastChange.2|R|.1.3.6.1.2.1.2.2.1.9.2|43|The value of sysUpTime at the time the interface entered its current operational state. If the current state was entered prior to the last re- initialization of the local network management subsystem, then this object contains a zero value.
+SNMPItem=ifLastChange.3|R|.1.3.6.1.2.1.2.2.1.9.3|43|The value of sysUpTime at the time the interface entered its current operational state. If the current state was entered prior to the last re- initialization of the local network management subsystem, then this object contains a zero value.
+SNMPItem=ifLastChange.4|R|.1.3.6.1.2.1.2.2.1.9.4|43|The value of sysUpTime at the time the interface entered its current operational state. If the current state was entered prior to the last re- initialization of the local network management subsystem, then this object contains a zero value.
+SNMPItem=ifLastChange.5|R|.1.3.6.1.2.1.2.2.1.9.5|43|The value of sysUpTime at the time the interface entered its current operational state. If the current state was entered prior to the last re- initialization of the local network management subsystem, then this object contains a zero value.
+SNMPItem=ifLastChange.6|R|.1.3.6.1.2.1.2.2.1.9.6|43|The value of sysUpTime at the time the interface entered its current operational state. If the current state was entered prior to the last re- initialization of the local network management subsystem, then this object contains a zero value.
+SNMPItem=ifLastChange.7|R|.1.3.6.1.2.1.2.2.1.9.7|43|The value of sysUpTime at the time the interface entered its current operational state. If the current state was entered prior to the last re- initialization of the local network management subsystem, then this object contains a zero value.
+SNMPItem=ifLastChange.8|R|.1.3.6.1.2.1.2.2.1.9.8|43|The value of sysUpTime at the time the interface entered its current operational state. If the current state was entered prior to the last re- initialization of the local network management subsystem, then this object contains a zero value.
+SNMPItem=ifInOctets.1|R|.1.3.6.1.2.1.2.2.1.10.1|41|The total number of octets received on the interface, including framing characters.
+SNMPItem=ifInOctets.2|R|.1.3.6.1.2.1.2.2.1.10.2|41|The total number of octets received on the interface, including framing characters.
+SNMPItem=ifInOctets.3|R|.1.3.6.1.2.1.2.2.1.10.3|41|The total number of octets received on the interface, including framing characters.
+SNMPItem=ifInOctets.4|R|.1.3.6.1.2.1.2.2.1.10.4|41|The total number of octets received on the interface, including framing characters.
+SNMPItem=ifInOctets.5|R|.1.3.6.1.2.1.2.2.1.10.5|41|The total number of octets received on the interface, including framing characters.
+SNMPItem=ifInOctets.6|R|.1.3.6.1.2.1.2.2.1.10.6|41|The total number of octets received on the interface, including framing characters.
+SNMPItem=ifInOctets.7|R|.1.3.6.1.2.1.2.2.1.10.7|41|The total number of octets received on the interface, including framing characters.
+SNMPItem=ifInOctets.8|R|.1.3.6.1.2.1.2.2.1.10.8|41|The total number of octets received on the interface, including framing characters.
+SNMPItem=ifInUcastPkts.1|R|.1.3.6.1.2.1.2.2.1.11.1|41|The number of subnetwork-unicast packets delivered to a higher-layer protocol.
+SNMPItem=ifInUcastPkts.2|R|.1.3.6.1.2.1.2.2.1.11.2|41|The number of subnetwork-unicast packets delivered to a higher-layer protocol.
+SNMPItem=ifInUcastPkts.3|R|.1.3.6.1.2.1.2.2.1.11.3|41|The number of subnetwork-unicast packets delivered to a higher-layer protocol.
+SNMPItem=ifInUcastPkts.4|R|.1.3.6.1.2.1.2.2.1.11.4|41|The number of subnetwork-unicast packets delivered to a higher-layer protocol.
+SNMPItem=ifInUcastPkts.5|R|.1.3.6.1.2.1.2.2.1.11.5|41|The number of subnetwork-unicast packets delivered to a higher-layer protocol.
+SNMPItem=ifInUcastPkts.6|R|.1.3.6.1.2.1.2.2.1.11.6|41|The number of subnetwork-unicast packets delivered to a higher-layer protocol.
+SNMPItem=ifInUcastPkts.7|R|.1.3.6.1.2.1.2.2.1.11.7|41|The number of subnetwork-unicast packets delivered to a higher-layer protocol.
+SNMPItem=ifInUcastPkts.8|R|.1.3.6.1.2.1.2.2.1.11.8|41|The number of subnetwork-unicast packets delivered to a higher-layer protocol.
+SNMPItem=ifInNUcastPkts.1|R|.1.3.6.1.2.1.2.2.1.12.1|41|The number of non-unicast (i.e., subnetwork- broadcast or subnetwork-multicast) packets delivered to a higher-layer protocol.
+SNMPItem=ifInNUcastPkts.2|R|.1.3.6.1.2.1.2.2.1.12.2|41|The number of non-unicast (i.e., subnetwork- broadcast or subnetwork-multicast) packets delivered to a higher-layer protocol.
+SNMPItem=ifInNUcastPkts.3|R|.1.3.6.1.2.1.2.2.1.12.3|41|The number of non-unicast (i.e., subnetwork- broadcast or subnetwork-multicast) packets delivered to a higher-layer protocol.
+SNMPItem=ifInNUcastPkts.4|R|.1.3.6.1.2.1.2.2.1.12.4|41|The number of non-unicast (i.e., subnetwork- broadcast or subnetwork-multicast) packets delivered to a higher-layer protocol.
+SNMPItem=ifInNUcastPkts.5|R|.1.3.6.1.2.1.2.2.1.12.5|41|The number of non-unicast (i.e., subnetwork- broadcast or subnetwork-multicast) packets delivered to a higher-layer protocol.
+SNMPItem=ifInNUcastPkts.6|R|.1.3.6.1.2.1.2.2.1.12.6|41|The number of non-unicast (i.e., subnetwork- broadcast or subnetwork-multicast) packets delivered to a higher-layer protocol.
+SNMPItem=ifInNUcastPkts.7|R|.1.3.6.1.2.1.2.2.1.12.7|41|The number of non-unicast (i.e., subnetwork- broadcast or subnetwork-multicast) packets delivered to a higher-layer protocol.
+SNMPItem=ifInNUcastPkts.8|R|.1.3.6.1.2.1.2.2.1.12.8|41|The number of non-unicast (i.e., subnetwork- broadcast or subnetwork-multicast) packets delivered to a higher-layer protocol.
+SNMPItem=ifInDiscards.1|R|.1.3.6.1.2.1.2.2.1.13.1|41|The number of inbound packets which were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifInDiscards.2|R|.1.3.6.1.2.1.2.2.1.13.2|41|The number of inbound packets which were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifInDiscards.3|R|.1.3.6.1.2.1.2.2.1.13.3|41|The number of inbound packets which were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifInDiscards.4|R|.1.3.6.1.2.1.2.2.1.13.4|41|The number of inbound packets which were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifInDiscards.5|R|.1.3.6.1.2.1.2.2.1.13.5|41|The number of inbound packets which were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifInDiscards.6|R|.1.3.6.1.2.1.2.2.1.13.6|41|The number of inbound packets which were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifInDiscards.7|R|.1.3.6.1.2.1.2.2.1.13.7|41|The number of inbound packets which were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifInDiscards.8|R|.1.3.6.1.2.1.2.2.1.13.8|41|The number of inbound packets which were chosen to be discarded even though no errors had been detected to prevent their being deliverable to a higher-layer protocol. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifInErrors.1|R|.1.3.6.1.2.1.2.2.1.14.1|41|The number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol.
+SNMPItem=ifInErrors.2|R|.1.3.6.1.2.1.2.2.1.14.2|41|The number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol.
+SNMPItem=ifInErrors.3|R|.1.3.6.1.2.1.2.2.1.14.3|41|The number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol.
+SNMPItem=ifInErrors.4|R|.1.3.6.1.2.1.2.2.1.14.4|41|The number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol.
+SNMPItem=ifInErrors.5|R|.1.3.6.1.2.1.2.2.1.14.5|41|The number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol.
+SNMPItem=ifInErrors.6|R|.1.3.6.1.2.1.2.2.1.14.6|41|The number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol.
+SNMPItem=ifInErrors.7|R|.1.3.6.1.2.1.2.2.1.14.7|41|The number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol.
+SNMPItem=ifInErrors.8|R|.1.3.6.1.2.1.2.2.1.14.8|41|The number of inbound packets that contained errors preventing them from being deliverable to a higher-layer protocol.
+SNMPItem=ifInUnknownProtos.1|R|.1.3.6.1.2.1.2.2.1.15.1|41|The number of packets received via the interface which were discarded because of an unknown or unsupported protocol.
+SNMPItem=ifInUnknownProtos.2|R|.1.3.6.1.2.1.2.2.1.15.2|41|The number of packets received via the interface which were discarded because of an unknown or unsupported protocol.
+SNMPItem=ifInUnknownProtos.3|R|.1.3.6.1.2.1.2.2.1.15.3|41|The number of packets received via the interface which were discarded because of an unknown or unsupported protocol.
+SNMPItem=ifInUnknownProtos.4|R|.1.3.6.1.2.1.2.2.1.15.4|41|The number of packets received via the interface which were discarded because of an unknown or unsupported protocol.
+SNMPItem=ifInUnknownProtos.5|R|.1.3.6.1.2.1.2.2.1.15.5|41|The number of packets received via the interface which were discarded because of an unknown or unsupported protocol.
+SNMPItem=ifInUnknownProtos.6|R|.1.3.6.1.2.1.2.2.1.15.6|41|The number of packets received via the interface which were discarded because of an unknown or unsupported protocol.
+SNMPItem=ifInUnknownProtos.7|R|.1.3.6.1.2.1.2.2.1.15.7|41|The number of packets received via the interface which were discarded because of an unknown or unsupported protocol.
+SNMPItem=ifInUnknownProtos.8|R|.1.3.6.1.2.1.2.2.1.15.8|41|The number of packets received via the interface which were discarded because of an unknown or unsupported protocol.
+SNMPItem=ifOutOctets.1|R|.1.3.6.1.2.1.2.2.1.16.1|41|The total number of octets transmitted out of the interface, including framing characters.
+SNMPItem=ifOutOctets.2|R|.1.3.6.1.2.1.2.2.1.16.2|41|The total number of octets transmitted out of the interface, including framing characters.
+SNMPItem=ifOutOctets.3|R|.1.3.6.1.2.1.2.2.1.16.3|41|The total number of octets transmitted out of the interface, including framing characters.
+SNMPItem=ifOutOctets.4|R|.1.3.6.1.2.1.2.2.1.16.4|41|The total number of octets transmitted out of the interface, including framing characters.
+SNMPItem=ifOutOctets.5|R|.1.3.6.1.2.1.2.2.1.16.5|41|The total number of octets transmitted out of the interface, including framing characters.
+SNMPItem=ifOutOctets.6|R|.1.3.6.1.2.1.2.2.1.16.6|41|The total number of octets transmitted out of the interface, including framing characters.
+SNMPItem=ifOutOctets.7|R|.1.3.6.1.2.1.2.2.1.16.7|41|The total number of octets transmitted out of the interface, including framing characters.
+SNMPItem=ifOutOctets.8|R|.1.3.6.1.2.1.2.2.1.16.8|41|The total number of octets transmitted out of the interface, including framing characters.
+SNMPItem=ifOutUcastPkts.1|R|.1.3.6.1.2.1.2.2.1.17.1|41|The total number of packets that higher-level protocols requested be transmitted to a subnetwork-unicast address, including those that were discarded or not sent.
+SNMPItem=ifOutUcastPkts.2|R|.1.3.6.1.2.1.2.2.1.17.2|41|The total number of packets that higher-level protocols requested be transmitted to a subnetwork-unicast address, including those that were discarded or not sent.
+SNMPItem=ifOutUcastPkts.3|R|.1.3.6.1.2.1.2.2.1.17.3|41|The total number of packets that higher-level protocols requested be transmitted to a subnetwork-unicast address, including those that were discarded or not sent.
+SNMPItem=ifOutUcastPkts.4|R|.1.3.6.1.2.1.2.2.1.17.4|41|The total number of packets that higher-level protocols requested be transmitted to a subnetwork-unicast address, including those that were discarded or not sent.
+SNMPItem=ifOutUcastPkts.5|R|.1.3.6.1.2.1.2.2.1.17.5|41|The total number of packets that higher-level protocols requested be transmitted to a subnetwork-unicast address, including those that were discarded or not sent.
+SNMPItem=ifOutUcastPkts.6|R|.1.3.6.1.2.1.2.2.1.17.6|41|The total number of packets that higher-level protocols requested be transmitted to a subnetwork-unicast address, including those that were discarded or not sent.
+SNMPItem=ifOutUcastPkts.7|R|.1.3.6.1.2.1.2.2.1.17.7|41|The total number of packets that higher-level protocols requested be transmitted to a subnetwork-unicast address, including those that were discarded or not sent.
+SNMPItem=ifOutUcastPkts.8|R|.1.3.6.1.2.1.2.2.1.17.8|41|The total number of packets that higher-level protocols requested be transmitted to a subnetwork-unicast address, including those that were discarded or not sent.
+SNMPItem=ifOutNUcastPkts.1|R|.1.3.6.1.2.1.2.2.1.18.1|41|The total number of packets that higher-level protocols requested be transmitted to a non- unicast (i.e., a subnetwork-broadcast or subnetwork-multicast) address, including those that were discarded or not sent.
+SNMPItem=ifOutNUcastPkts.2|R|.1.3.6.1.2.1.2.2.1.18.2|41|The total number of packets that higher-level protocols requested be transmitted to a non- unicast (i.e., a subnetwork-broadcast or subnetwork-multicast) address, including those that were discarded or not sent.
+SNMPItem=ifOutNUcastPkts.3|R|.1.3.6.1.2.1.2.2.1.18.3|41|The total number of packets that higher-level protocols requested be transmitted to a non- unicast (i.e., a subnetwork-broadcast or subnetwork-multicast) address, including those that were discarded or not sent.
+SNMPItem=ifOutNUcastPkts.4|R|.1.3.6.1.2.1.2.2.1.18.4|41|The total number of packets that higher-level protocols requested be transmitted to a non- unicast (i.e., a subnetwork-broadcast or subnetwork-multicast) address, including those that were discarded or not sent.
+SNMPItem=ifOutNUcastPkts.5|R|.1.3.6.1.2.1.2.2.1.18.5|41|The total number of packets that higher-level protocols requested be transmitted to a non- unicast (i.e., a subnetwork-broadcast or subnetwork-multicast) address, including those that were discarded or not sent.
+SNMPItem=ifOutNUcastPkts.6|R|.1.3.6.1.2.1.2.2.1.18.6|41|The total number of packets that higher-level protocols requested be transmitted to a non- unicast (i.e., a subnetwork-broadcast or subnetwork-multicast) address, including those that were discarded or not sent.
+SNMPItem=ifOutNUcastPkts.7|R|.1.3.6.1.2.1.2.2.1.18.7|41|The total number of packets that higher-level protocols requested be transmitted to a non- unicast (i.e., a subnetwork-broadcast or subnetwork-multicast) address, including those that were discarded or not sent.
+SNMPItem=ifOutNUcastPkts.8|R|.1.3.6.1.2.1.2.2.1.18.8|41|The total number of packets that higher-level protocols requested be transmitted to a non- unicast (i.e., a subnetwork-broadcast or subnetwork-multicast) address, including those that were discarded or not sent.
+SNMPItem=ifOutDiscards.1|R|.1.3.6.1.2.1.2.2.1.19.1|41|The number of outbound packets which were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifOutDiscards.2|R|.1.3.6.1.2.1.2.2.1.19.2|41|The number of outbound packets which were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifOutDiscards.3|R|.1.3.6.1.2.1.2.2.1.19.3|41|The number of outbound packets which were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifOutDiscards.4|R|.1.3.6.1.2.1.2.2.1.19.4|41|The number of outbound packets which were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifOutDiscards.5|R|.1.3.6.1.2.1.2.2.1.19.5|41|The number of outbound packets which were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifOutDiscards.6|R|.1.3.6.1.2.1.2.2.1.19.6|41|The number of outbound packets which were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifOutDiscards.7|R|.1.3.6.1.2.1.2.2.1.19.7|41|The number of outbound packets which were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifOutDiscards.8|R|.1.3.6.1.2.1.2.2.1.19.8|41|The number of outbound packets which were chosen to be discarded even though no errors had been detected to prevent their being transmitted. One possible reason for discarding such a packet could be to free up buffer space.
+SNMPItem=ifOutErrors.1|R|.1.3.6.1.2.1.2.2.1.20.1|41|The number of outbound packets that could not be transmitted because of errors.
+SNMPItem=ifOutErrors.2|R|.1.3.6.1.2.1.2.2.1.20.2|41|The number of outbound packets that could not be transmitted because of errors.
+SNMPItem=ifOutErrors.3|R|.1.3.6.1.2.1.2.2.1.20.3|41|The number of outbound packets that could not be transmitted because of errors.
+SNMPItem=ifOutErrors.4|R|.1.3.6.1.2.1.2.2.1.20.4|41|The number of outbound packets that could not be transmitted because of errors.
+SNMPItem=ifOutErrors.5|R|.1.3.6.1.2.1.2.2.1.20.5|41|The number of outbound packets that could not be transmitted because of errors.
+SNMPItem=ifOutErrors.6|R|.1.3.6.1.2.1.2.2.1.20.6|41|The number of outbound packets that could not be transmitted because of errors.
+SNMPItem=ifOutErrors.7|R|.1.3.6.1.2.1.2.2.1.20.7|41|The number of outbound packets that could not be transmitted because of errors.
+SNMPItem=ifOutErrors.8|R|.1.3.6.1.2.1.2.2.1.20.8|41|The number of outbound packets that could not be transmitted because of errors.
+SNMPItem=ifOutQLen.1|R|.1.3.6.1.2.1.2.2.1.21.1|42|The length of the output packet queue (in packets).
+SNMPItem=ifOutQLen.2|R|.1.3.6.1.2.1.2.2.1.21.2|42|The length of the output packet queue (in packets).
+SNMPItem=ifOutQLen.3|R|.1.3.6.1.2.1.2.2.1.21.3|42|The length of the output packet queue (in packets).
+SNMPItem=ifOutQLen.4|R|.1.3.6.1.2.1.2.2.1.21.4|42|The length of the output packet queue (in packets).
+SNMPItem=ifOutQLen.5|R|.1.3.6.1.2.1.2.2.1.21.5|42|The length of the output packet queue (in packets).
+SNMPItem=ifOutQLen.6|R|.1.3.6.1.2.1.2.2.1.21.6|42|The length of the output packet queue (in packets).
+SNMPItem=ifOutQLen.7|R|.1.3.6.1.2.1.2.2.1.21.7|42|The length of the output packet queue (in packets).
+SNMPItem=ifOutQLen.8|R|.1.3.6.1.2.1.2.2.1.21.8|42|The length of the output packet queue (in packets).
+SNMPItem=ifSpecific.1|R|.1.3.6.1.2.1.2.2.1.22.1|06|A reference to MIB definitions specific to the particular media being used to realize the interface. For example, if the interface is realized by an ethernet, then the value of this object refers to a document defining objects specific to ethernet. If this information is not present, its value should be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntatically valid object identifier, and any conformant implementation of ASN.1 and BER must be able to generate and recognize this value.
+SNMPItem=ifSpecific.2|R|.1.3.6.1.2.1.2.2.1.22.2|06|A reference to MIB definitions specific to the particular media being used to realize the interface. For example, if the interface is realized by an ethernet, then the value of this object refers to a document defining objects specific to ethernet. If this information is not present, its value should be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntatically valid object identifier, and any conformant implementation of ASN.1 and BER must be able to generate and recognize this value.
+SNMPItem=ifSpecific.3|R|.1.3.6.1.2.1.2.2.1.22.3|06|A reference to MIB definitions specific to the particular media being used to realize the interface. For example, if the interface is realized by an ethernet, then the value of this object refers to a document defining objects specific to ethernet. If this information is not present, its value should be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntatically valid object identifier, and any conformant implementation of ASN.1 and BER must be able to generate and recognize this value.
+SNMPItem=ifSpecific.4|R|.1.3.6.1.2.1.2.2.1.22.4|06|A reference to MIB definitions specific to the particular media being used to realize the interface. For example, if the interface is realized by an ethernet, then the value of this object refers to a document defining objects specific to ethernet. If this information is not present, its value should be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntatically valid object identifier, and any conformant implementation of ASN.1 and BER must be able to generate and recognize this value.
+SNMPItem=ifSpecific.5|R|.1.3.6.1.2.1.2.2.1.22.5|06|A reference to MIB definitions specific to the particular media being used to realize the interface. For example, if the interface is realized by an ethernet, then the value of this object refers to a document defining objects specific to ethernet. If this information is not present, its value should be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntatically valid object identifier, and any conformant implementation of ASN.1 and BER must be able to generate and recognize this value.
+SNMPItem=ifSpecific.6|R|.1.3.6.1.2.1.2.2.1.22.6|06|A reference to MIB definitions specific to the particular media being used to realize the interface. For example, if the interface is realized by an ethernet, then the value of this object refers to a document defining objects specific to ethernet. If this information is not present, its value should be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntatically valid object identifier, and any conformant implementation of ASN.1 and BER must be able to generate and recognize this value.
+SNMPItem=ifSpecific.7|R|.1.3.6.1.2.1.2.2.1.22.7|06|A reference to MIB definitions specific to the particular media being used to realize the interface. For example, if the interface is realized by an ethernet, then the value of this object refers to a document defining objects specific to ethernet. If this information is not present, its value should be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntatically valid object identifier, and any conformant implementation of ASN.1 and BER must be able to generate and recognize this value.
+SNMPItem=ifSpecific.8|R|.1.3.6.1.2.1.2.2.1.22.8|06|A reference to MIB definitions specific to the particular media being used to realize the interface. For example, if the interface is realized by an ethernet, then the value of this object refers to a document defining objects specific to ethernet. If this information is not present, its value should be set to the OBJECT IDENTIFIER { 0 0 }, which is a syntatically valid object identifier, and any conformant implementation of ASN.1 and BER must be able to generate and recognize this value.
+
+[mib-2 ip]
+;Full path: iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1).ip(4)
+SNMPItem=ipForwarding|RW|.1.3.6.1.2.1.4.1.0|02|The indication of whether this entity is acting as an IP gateway in respect to the forwarding of datagrams received by, but not addressed to, this entity. IP gateways forward datagrams. IP hosts do not (except those source-routed via the host). Note that for some managed nodes, this object may take on only a subset of the values possible. Accordingly, it is appropriate for an agent to return a `badValue' response if a management station attempts to change this object to an inappropriate value.
+SNMPItem=ipDefaultTTL|RW|.1.3.6.1.2.1.4.2.0|02|The default value inserted into the Time-To-Live field of the IP header of datagrams originated at this entity, whenever a TTL value is not supplied by the transport layer protocol.
+SNMPItem=ipInReceives|R|.1.3.6.1.2.1.4.3.0|41|The total number of input datagrams received from interfaces, including those received in error.
+SNMPItem=ipInHdrErrors|R|.1.3.6.1.2.1.4.4.0|41|The number of input datagrams discarded due to errors in their IP headers, including bad checksums, version number mismatch, other format errors, time-to-live exceeded, errors discovered in processing their IP options, etc.
+SNMPItem=ipInAddrErrors|R|.1.3.6.1.2.1.4.5.0|41|The number of input datagrams discarded because the IP address in their IP header's destination field was not a valid address to be received at this entity. This count includes invalid addresses (e.g., 0.0.0.0) and addresses of unsupported Classes (e.g., Class E). For entities which are not IP Gateways and therefore do not forward datagrams, this counter includes datagrams discarded because the destination address was not a local address.
+SNMPItem=ipForwDatagrams|R|.1.3.6.1.2.1.4.6.0|41|The number of input datagrams for which this entity was not their final IP destination, as a result of which an attempt was made to find a route to forward them to that final destination. In entities which do not act as IP Gateways, this counter will include only those packets which were Source-Routed via this entity, and the Source- Route option processing was successful.
+SNMPItem=ipInUnknownProtos|R|.1.3.6.1.2.1.4.7.0|41|The number of locally-addressed datagrams received successfully but discarded because of an unknown or unsupported protocol.
+SNMPItem=ipInDiscards|R|.1.3.6.1.2.1.4.8.0|41|The number of input IP datagrams for which no problems were encountered to prevent their continued processing, but which were discarded (e.g., for lack of buffer space). Note that this counter does not include any datagrams discarded while awaiting re-assembly.
+SNMPItem=ipInDelivers|R|.1.3.6.1.2.1.4.9.0|41|The total number of input datagrams successfully delivered to IP user-protocols (including ICMP).
+SNMPItem=ipOutRequests|R|.1.3.6.1.2.1.4.10.0|41|The total number of IP datagrams which local IP user-protocols (including ICMP) supplied to IP in requests for transmission. Note that this counter does not include any datagrams counted in ipForwDatagrams.
+SNMPItem=ipOutDiscards|R|.1.3.6.1.2.1.4.11.0|41|The number of output IP datagrams for which no problem was encountered to prevent their transmission to their destination, but which were discarded (e.g., for lack of buffer space). Note that this counter would include datagrams counted in ipForwDatagrams if any such packets met this (discretionary) discard criterion.
+SNMPItem=ipOutNoRoutes|R|.1.3.6.1.2.1.4.12.0|41|The number of IP datagrams discarded because no route could be found to transmit them to their destination. Note that this counter includes any packets counted in ipForwDatagrams which meet this `no-route' criterion. Note that this includes any datagarms which a host cannot route because all of its default gateways are down.
+SNMPItem=ipReasmTimeout|R|.1.3.6.1.2.1.4.13.0|02|The maximum number of seconds which received fragments are held while they are awaiting reassembly at this entity.
+SNMPItem=ipReasmReqds|R|.1.3.6.1.2.1.4.14.0|41|The number of IP fragments received which needed to be reassembled at this entity.
+SNMPItem=ipReasmOKs|R|.1.3.6.1.2.1.4.15.0|41|The number of IP datagrams successfully re- assembled.
+SNMPItem=ipReasmFails|R|.1.3.6.1.2.1.4.16.0|41|The number of failures detected by the IP re- assembly algorithm (for whatever reason: timed out, errors, etc). Note that this is not necessarily a count of discarded IP fragments since some algorithms (notably the algorithm in RFC 815) can lose track of the number of fragments by combining them as they are received.
+SNMPItem=ipFragOKs|R|.1.3.6.1.2.1.4.17.0|41|The number of IP datagrams that have been successfully fragmented at this entity.
+SNMPItem=ipFragFails|R|.1.3.6.1.2.1.4.18.0|41|The number of IP datagrams that have been discarded because they needed to be fragmented at this entity but could not be, e.g., because their Don't Fragment flag was set.
+SNMPItem=ipFragCreates|R|.1.3.6.1.2.1.4.19.0|41|The number of IP datagram fragments that have been generated as a result of fragmentation at this entity.
+
+[mib-2 icmp]
+;Full path: iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1).icmp(5)
+SNMPItem=icmpInMsgs|R|.1.3.6.1.2.1.5.1.0|41|The total number of ICMP messages which the entity received. Note that this counter includes all those counted by icmpInErrors.
+SNMPItem=icmpInErrors|R|.1.3.6.1.2.1.5.2.0|41|The number of ICMP messages which the entity received but determined as having ICMP-specific errors (bad ICMP checksums, bad length, etc.).
+SNMPItem=icmpInDestUnreachs|R|.1.3.6.1.2.1.5.3.0|41|The number of ICMP Destination Unreachable messages received.
+SNMPItem=icmpInTimeExcds|R|.1.3.6.1.2.1.5.4.0|41|The number of ICMP Time Exceeded messages received.
+SNMPItem=icmpInParmProbs|R|.1.3.6.1.2.1.5.5.0|41|The number of ICMP Parameter Problem messages received.
+SNMPItem=icmpInSrcQuenchs|R|.1.3.6.1.2.1.5.6.0|41|The number of ICMP Source Quench messages received.
+SNMPItem=icmpInRedirects|R|.1.3.6.1.2.1.5.7.0|41|The number of ICMP Redirect messages received.
+SNMPItem=icmpInEchos|R|.1.3.6.1.2.1.5.8.0|41|The number of ICMP Echo (request) messages received.
+SNMPItem=icmpInEchoReps|R|.1.3.6.1.2.1.5.9.0|41|The number of ICMP Echo Reply messages received.
+SNMPItem=icmpInTimestamps|R|.1.3.6.1.2.1.5.10.0|41|The number of ICMP Timestamp (request) messages received.
+SNMPItem=icmpInTimestampReps|R|.1.3.6.1.2.1.5.11.0|41|The number of ICMP Timestamp Reply messages received.
+SNMPItem=icmpInAddrMasks|R|.1.3.6.1.2.1.5.12.0|41|The number of ICMP Address Mask Request messages received.
+SNMPItem=icmpInAddrMaskReps|R|.1.3.6.1.2.1.5.13.0|41|The number of ICMP Address Mask Reply messages received.
+SNMPItem=icmpOutMsgs|R|.1.3.6.1.2.1.5.14.0|41|The total number of ICMP messages which this entity attempted to send. Note that this counter includes all those counted by icmpOutErrors.
+SNMPItem=icmpOutErrors|R|.1.3.6.1.2.1.5.15.0|41|The number of ICMP messages which this entity did not send due to problems discovered within ICMP such as a lack of buffers. This value should not include errors discovered outside the ICMP layer such as the inability of IP to route the resultant datagram. In some implementations there may be no types of error which contribute to this counter's value.
+SNMPItem=icmpOutDestUnreachs|R|.1.3.6.1.2.1.5.16.0|41|The number of ICMP Destination Unreachable messages sent.
+SNMPItem=icmpOutTimeExcds|R|.1.3.6.1.2.1.5.17.0|41|The number of ICMP Time Exceeded messages sent.
+SNMPItem=icmpOutParmProbs|R|.1.3.6.1.2.1.5.18.0|41|The number of ICMP Parameter Problem messages sent.
+SNMPItem=icmpOutSrcQuenchs|R|.1.3.6.1.2.1.5.19.0|41|The number of ICMP Source Quench messages sent.
+SNMPItem=icmpOutRedirects|R|.1.3.6.1.2.1.5.20.0|41|The number of ICMP Redirect messages sent. For a host, this object will always be zero, since hosts do not send redirects.
+SNMPItem=icmpOutEchos|R|.1.3.6.1.2.1.5.21.0|41|The number of ICMP Echo (request) messages sent.
+SNMPItem=icmpOutEchoReps|R|.1.3.6.1.2.1.5.22.0|41|The number of ICMP Echo Reply messages sent.
+SNMPItem=icmpOutTimestamps|R|.1.3.6.1.2.1.5.23.0|41|The number of ICMP Timestamp (request) messages sent.
+SNMPItem=icmpOutTimestampReps|R|.1.3.6.1.2.1.5.24.0|41|The number of ICMP Timestamp Reply messages sent.
+SNMPItem=icmpOutAddrMasks|R|.1.3.6.1.2.1.5.25.0|41|The number of ICMP Address Mask Request messages sent.
+SNMPItem=icmpOutAddrMaskReps|R|.1.3.6.1.2.1.5.26.0|41|The number of ICMP Address Mask Reply messages sent.
+
+[mib-2 tcp]
+;Full path: iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1).tcp(6)
+SNMPItem=tcpRtoAlgorithm|R|.1.3.6.1.2.1.6.1.0|02|The algorithm used to determine the timeout value used for retransmitting unacknowledged octets.
+SNMPItem=tcpRtoMin|R|.1.3.6.1.2.1.6.2.0|02|The minimum value permitted by a TCP implementation for the retransmission timeout, measured in milliseconds. More refined semantics for objects of this type depend upon the algorithm used to determine the retransmission timeout. In particular, when the timeout algorithm is rsre(3), an object of this type has the semantics of the LBOUND quantity described in RFC 793.
+SNMPItem=tcpRtoMax|R|.1.3.6.1.2.1.6.3.0|02|The maximum value permitted by a TCP implementation for the retransmission timeout, measured in milliseconds. More refined semantics for objects of this type depend upon the algorithm used to determine the retransmission timeout. In particular, when the timeout algorithm is rsre(3), an object of this type has the semantics of the UBOUND quantity described in RFC 793.
+SNMPItem=tcpMaxConn|R|.1.3.6.1.2.1.6.4.0|02|The limit on the total number of TCP connections the entity can support. In entities where the maximum number of connections is dynamic, this object should contain the value -1.
+SNMPItem=tcpActiveOpens|R|.1.3.6.1.2.1.6.5.0|41|The number of times TCP connections have made a direct transition to the SYN-SENT state from the CLOSED state.
+SNMPItem=tcpPassiveOpens|R|.1.3.6.1.2.1.6.6.0|41|The number of times TCP connections have made a direct transition to the SYN-RCVD state from the LISTEN state.
+SNMPItem=tcpAttemptFails|R|.1.3.6.1.2.1.6.7.0|41|The number of times TCP connections have made a direct transition to the CLOSED state from either the SYN-SENT state or the SYN-RCVD state, plus the number of times TCP connections have made a direct transition to the LISTEN state from the SYN-RCVD state.
+SNMPItem=tcpEstabResets|R|.1.3.6.1.2.1.6.8.0|41|The number of times TCP connections have made a direct transition to the CLOSED state from either the ESTABLISHED state or the CLOSE-WAIT state.
+SNMPItem=tcpCurrEstab|R|.1.3.6.1.2.1.6.9.0|42|The number of TCP connections for which the current state is either ESTABLISHED or CLOSE- WAIT.
+SNMPItem=tcpInSegs|R|.1.3.6.1.2.1.6.10.0|41|The total number of segments received, including those received in error. This count includes segments received on currently established connections.
+SNMPItem=tcpOutSegs|R|.1.3.6.1.2.1.6.11.0|41|The total number of segments sent, including those on current connections but excluding those containing only retransmitted octets.
+SNMPItem=tcpRetransSegs|R|.1.3.6.1.2.1.6.12.0|41|The total number of segments retransmitted - that is, the number of TCP segments transmitted containing one or more previously transmitted octets.
+SNMPItem=tcpInErrs|R|.1.3.6.1.2.1.6.14.0|41|The total number of segments received in error (e.g., bad TCP checksums).
+SNMPItem=tcpOutRsts|R|.1.3.6.1.2.1.6.15.0|41|The number of TCP segments sent containing the RST flag.
+
+[mib-2 udp]
+;Full path: iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1).udp(7)
+SNMPItem=udpInDatagrams|R|.1.3.6.1.2.1.7.1.0|41|The total number of UDP datagrams delivered to UDP users.
+SNMPItem=udpNoPorts|R|.1.3.6.1.2.1.7.2.0|41|The total number of received UDP datagrams for which there was no application at the destination port.
+SNMPItem=udpInErrors|R|.1.3.6.1.2.1.7.3.0|41|The number of received UDP datagrams that could not be delivered for reasons other than the lack of an application at the destination port.
+SNMPItem=udpOutDatagrams|R|.1.3.6.1.2.1.7.4.0|41|The total number of UDP datagrams sent from this entity.
+
+[mib-2 snmp]
+;Full path: iso(1).org(3).dod(6).internet(1).mgmt(2).mib-2(1).snmp(11)
+SNMPItem=snmpInPkts|R|.1.3.6.1.2.1.11.1.0|41|The total number of Messages delivered to the SNMP entity from the transport service.
+SNMPItem=snmpOutPkts|R|.1.3.6.1.2.1.11.2.0|41|The total number of SNMP Messages which were passed from the SNMP protocol entity to the transport service.
+SNMPItem=snmpInBadVersions|R|.1.3.6.1.2.1.11.3.0|41|The total number of SNMP Messages which were delivered to the SNMP protocol entity and were for an unsupported SNMP version.
+SNMPItem=snmpInBadCommunityNames|R|.1.3.6.1.2.1.11.4.0|41|The total number of SNMP Messages delivered to the SNMP protocol entity which used a SNMP community name not known to said entity.
+SNMPItem=snmpInBadCommunityUses|R|.1.3.6.1.2.1.11.5.0|41|The total number of SNMP Messages delivered to the SNMP protocol entity which represented an SNMP operation which was not allowed by the SNMP community named in the Message.
+SNMPItem=snmpInASNParseErrs|R|.1.3.6.1.2.1.11.6.0|41|The total number of ASN.1 or BER errors encountered by the SNMP protocol entity when decoding received SNMP Messages.
+SNMPItem=snmpInTooBigs|R|.1.3.6.1.2.1.11.8.0|41|The total number of SNMP PDUs which were delivered to the SNMP protocol entity and for which the value of the error-status field is `tooBig'.
+SNMPItem=snmpInNoSuchNames|R|.1.3.6.1.2.1.11.9.0|41|The total number of SNMP PDUs which were delivered to the SNMP protocol entity and for which the value of the error-status field is `noSuchName'.
+SNMPItem=snmpInBadValues|R|.1.3.6.1.2.1.11.10.0|41|The total number of SNMP PDUs which were delivered to the SNMP protocol entity and for which the value of the error-status field is `badValue'.
+SNMPItem=snmpInReadOnlys|R|.1.3.6.1.2.1.11.11.0|41|The total number valid SNMP PDUs which were delivered to the SNMP protocol entity and for which the value of the error-status field is `readOnly'. It should be noted that it is a protocol error to generate an SNMP PDU which contains the value `readOnly' in the error-status field, as such this object is provided as a means of detecting incorrect implementations of the SNMP.
+SNMPItem=snmpInGenErrs|R|.1.3.6.1.2.1.11.12.0|41|The total number of SNMP PDUs which were delivered to the SNMP protocol entity and for which the value of the error-status field is `genErr'.
+SNMPItem=snmpInTotalReqVars|R|.1.3.6.1.2.1.11.13.0|41|The total number of MIB objects which have been retrieved successfully by the SNMP protocol entity as the result of receiving valid SNMP Get-Request and Get-Next PDUs.
+SNMPItem=snmpInTotalSetVars|R|.1.3.6.1.2.1.11.14.0|41|The total number of MIB objects which have been altered successfully by the SNMP protocol entity as the result of receiving valid SNMP Set-Request PDUs.
+SNMPItem=snmpInGetRequests|R|.1.3.6.1.2.1.11.15.0|41|The total number of SNMP Get-Request PDUs which have been accepted and processed by the SNMP protocol entity.
+SNMPItem=snmpInGetNexts|R|.1.3.6.1.2.1.11.16.0|41|The total number of SNMP Get-Next PDUs which have been accepted and processed by the SNMP protocol entity.
+SNMPItem=snmpInSetRequests|R|.1.3.6.1.2.1.11.17.0|41|The total number of SNMP Set-Request PDUs which have been accepted and processed by the SNMP protocol entity.
+SNMPItem=snmpInGetResponses|R|.1.3.6.1.2.1.11.18.0|41|The total number of SNMP Get-Response PDUs which have been accepted and processed by the SNMP protocol entity.
+SNMPItem=snmpInTraps|R|.1.3.6.1.2.1.11.19.0|41|The total number of SNMP Trap PDUs which have been accepted and processed by the SNMP protocol entity.
+SNMPItem=snmpOutTooBigs|R|.1.3.6.1.2.1.11.20.0|41|The total number of SNMP PDUs which were generated by the SNMP protocol entity and for which the value of the error-status field is `tooBig.'
+SNMPItem=snmpOutNoSuchNames|R|.1.3.6.1.2.1.11.21.0|41|The total number of SNMP PDUs which were generated by the SNMP protocol entity and for which the value of the error-status is `noSuchName'.
+SNMPItem=snmpOutBadValues|R|.1.3.6.1.2.1.11.22.0|41|The total number of SNMP PDUs which were generated by the SNMP protocol entity and for which the value of the error-status field is `badValue'.
+SNMPItem=snmpOutGenErrs|R|.1.3.6.1.2.1.11.24.0|41|The total number of SNMP PDUs which were generated by the SNMP protocol entity and for which the value of the error-status field is `genErr'.
+SNMPItem=snmpOutGetRequests|R|.1.3.6.1.2.1.11.25.0|41|The total number of SNMP Get-Request PDUs which have been generated by the SNMP protocol entity.
+SNMPItem=snmpOutGetNexts|R|.1.3.6.1.2.1.11.26.0|41|The total number of SNMP Get-Next PDUs which have been generated by the SNMP protocol entity.
+SNMPItem=snmpOutSetRequests|R|.1.3.6.1.2.1.11.27.0|41|The total number of SNMP Set-Request PDUs which have been generated by the SNMP protocol entity.
+SNMPItem=snmpOutGetResponses|R|.1.3.6.1.2.1.11.28.0|41|The total number of SNMP Get-Response PDUs which have been generated by the SNMP protocol entity.
+SNMPItem=snmpOutTraps|R|.1.3.6.1.2.1.11.29.0|41|The total number of SNMP Trap PDUs which have been generated by the SNMP protocol entity.
+SNMPItem=snmpEnableAuthenTraps|RW|.1.3.6.1.2.1.11.30.0|02|Indicates whether the SNMP agent process is permitted to generate authentication-failure traps. The value of this object overrides any configuration information/ as such, it provides a means whereby all authentication-failure traps may be disabled. Note that it is strongly recommended that this object be stored in non-volatile memory so that it remains constant between re-initializations of the network management system.
+
+[mib-2 snmp traps]
+Trap=coldStart|GTrap.0||500|A coldStart trap signifies that the SNMP entity, acting in an agent role, is reinitializing itself such that its configuration may be altered.
+Trap=warmStart|GTrap.1||500|A warmStart trap signifies that the SNMP entity, acting in an agent role, is reinitializing itself such that its configuration is unaltered.
+Trap=linkDown|GTrap.2||500|A linkDown trap signifies that the SNMP entity, acting in an agent role, recognizes a failure in one of the communication links represented in its configuration.
+Trap=linkUp|GTrap.3||500|A linkUp trap signifies that the SNMP entity, acting in an agent role, recognizes that one of the communication links represented in its configuration has come up.
+Trap=authenticationFailure|GTrap.4||500|An authenticationFailure trap signifies that the SNMP entity, acting in an agent role, has received a protocol message that is not properly authenticated.  While all implementations of the SNMPv2 must be capable of generating this trap, the snmpV2EnableAuthenTraps object indicates whether this trap will be generated.
+
+;Items for SN-SCALANCEX200-PRIV-MIB
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100)
+
+[iScalanceX200Mib snDownload]
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100).snCommon(1).snDownload(5)
+SNMPItem=snDownloadParamsTftpServerHostName|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.5.1.2.0|04|IP address (x.y.z.w) otherwise name of the TFTP server host, if the name server is present.
+SNMPItem=snDownloadFirmwareFile|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.5.1.3.0|04|Full path name of firmware file to be saved to the TFTP server host. Note that the file name must have the appropriate syntax for the TFTP server host. E.g., if the TFTP server host is a UNIX machine, the full file name might be /tftp/name.frm, or if the TFTP server host is a Windows machine, the full file name might be C:\tftp\name.frm.
+SNMPItem=snDownloadFirmwareControl|W|.1.3.6.1.4.1.4196.1.1.5.2.100.1.5.1.4.0|02|Setting this object to start-load(2) causes the system to start a downloading process to TFTP server. Setting this object to start-save(3) causes the system to start uploading process from TFTP server.
+SNMPItem=snDownloadParamsStatus|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.5.1.5.0|02|The status of the TFTP client.
+SNMPItem=snDownloadParamsError|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.5.1.7.0|04|The error status of the TFTP client.
+SNMPItem=snDownloadEventLogTableFile|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.5.1.9.0|04|Full path name of file to be saved to the TFTP server host. Note that the file name must have the appropriate syntax for the TFTP server host. E.g., if the TFTP server host is a UNIX machine, the full file name might be /tftp/name.txt, or if the TFTP server host is a Windows machine, the full file name might be C:\tftp\name.txt. (Only in SCALANCE X-200IRT) 
+SNMPItem=snDownloadConfigFile|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.5.1.11.0|04|Full path name of config file to be downloaded from the TFTP server host. Note that the file name must have the appropriate syntax for the TFTP server host. E.g., if the TFTP server host is a UNIX machine, the full file name might be /tftpboot/ad_sb.hex, or if the TFTP server host is a Windows machine, the full file name might be C:\tftpboot\ad_sb.hex.
+SNMPItem=snDownloadConfigControl|W|.1.3.6.1.4.1.4196.1.1.5.2.100.1.5.1.12.0|02|Setting this object to start-load(2) causes the system to start a downloading process from TFTP server. Setting this object to start-save(3) causes the system to start uploading process to TFTP server.
+SNMPItem=snDownloadParamsTftpServerHostPort|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.5.1.13.0|02|Port of the TFTP server host. Dafault value is 69.
+
+[iScalanceX200Mib snNvLog]
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100).snCommon(1).snNvLog(6)
+SNMPItem=snNvLogMaxEntries|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.6.1.0|02|Maximum number of events that can be kept in Non-Volatile Memory.
+SNMPItem=snNvLogCurrentEntries|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.6.2.0|02|Number of events that are currently kept in Non-Volatile Memory.
+SNMPItem=snNvLogNewEntries|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.6.3.0|02|Counter for events that are logged in Non-Volatile Memory. This counter starts at 0 after each system start. User can reset this counter at any time by writing 0 to this object.
+SNMPItem=snNvLogClear|W|.1.3.6.1.4.1.4196.1.1.5.2.100.1.6.4.0|02|Setting this object to clear(1) value, clears the events that are kept in Non-Volatile Memory.
+;snNvLogTable contains up to 400 entries. For this, its not suitable for OPC. If anyone needs a specific entry for OPC, here is an example:
+;;SNMPItem=snNvLogPowerUpCount.1|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.6.5.1.1.1|02|The number of times the system was powered up.
+;;SNMPItem=snNvLogTime.1|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.6.5.1.2.1|43|The sysUpTime of the system when the event occurred.
+;;SNMPItem=snNvLogSequenceNumber.1|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.6.5.1.3.1|02|The system Sequence Number Count.
+;;SNMPItem=snNvLogDescr.1|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.6.5.1.4.1|04|ASCII Description of the event.
+;;SNMPItem=snNvLogType.1|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.6.5.1.5.1|02|Type of event.
+
+[iScalanceX200Mib snTrapInfo]
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100).snCommon(1).snTrapInfo(7)
+SNMPItem=snTrapMaxManagers|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.7.6.0|02|The maximum number of managers that can be registered for receiving traps.
+SNMPItem=snTrapTimeLastGenerated|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.7.5.0|43|The value of sysUpTime at the time the last trap was generated. This object can be used by the management station to determine whether traps were generated since the last poll.
+SNMPItem=snTrapsEnable|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.7.1.0|02|Determines whether this device will transmit traps to SNMP management stations. This if this object is set to disable no traps will be sent. Setting object is set to enabled is a necessary, but not a sufficient condition for transmission of traps.
+;snTrapTable contains up to 2 entries.
+SNMPItem=snTrapAddress.1|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.7.7.1.1.1|04|The IP address or host name of the network management entity to which traps (of the type specified in this table entry) should be sent.
+SNMPItem=snTrapAddress.2|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.7.7.1.1.2|04|The IP address or host name of the network management entity to which traps (of the type specified in this table entry) should be sent.
+SNMPItem=snTrapIndex.1|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.7.7.1.6.1|02|The Index of Trap Table
+SNMPItem=snTrapIndex.2|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.7.7.1.6.2|02|The Index of Trap Table
+SNMPItem=snTrapState.1|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.7.7.1.3.1|02|The state of this entry in the trap address table. Setting this object to inactive(2) removes the corresponding entry from the table.
+SNMPItem=snTrapState.2|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.7.7.1.3.2|02|The state of this entry in the trap address table. Setting this object to inactive(2) removes the corresponding entry from the table.
+
+[iScalanceX200Mib snGen]
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100).snCommon(1).snGen(8)
+SNMPItem=snUserDescription|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.1.0|04|Extended description of the station including user specific information
+SNMPItem=snHwVersion|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.2.0|04|The hardware version of the system in the format major.minor.
+SNMPItem=snBootStrapVersion|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.3.0|04|The firmware version of the bootstrap program installed in the system in the format major.minor.
+SNMPItem=snSwVersion|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.4.0|04|The software version of the system in the format major.minor.
+SNMPItem=snInfoSerialNr|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.6.0|04|The serial number of this product.
+SNMPItem=snTelnetEnable|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.9.0|02|
+SNMPItem=snTelnetTimeOutEnable|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.10.0|02|Enables or disables the time out for a TELNET session
+SNMPItem=snTelnetTimeOut|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.11.0|02|Time out for the TELNET session. The time could be set in steps of 10 secounds
+SNMPItem=snSNMPEnable|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.12.0|02|Determines whether this device may be accessed by SNMP management stations
+SNMPItem=snSysReset|W|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.13.0|02|Restarts the system. cold-reset(1) is identical to Power-On-Reset or Watchdog-Reset. warm-reset(2) is identical to restart command.
+SNMPItem=snResetPowerUpCount|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.14.0|02|The number of times the sytem was powered up.
+SNMPItem=snSetFactoryDefs|W|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.15.0|02|Restore factory defaults. The following settings are not modified by setting the value 'set-factory-defaults': IP-Address, Subnet-Mask, Gateway-Address, SSID, DHCP-Flag, System Name, System Location, System Contact, Device Mode, Country Code. 'set-factory-defaults-complete' will erase all configuration.
+SNMPItem=snResetCounters|W|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.16.0|02|Reset all counters.
+SNMPItem=snEmailSMTPIpAddress|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.20.0|04|IP address or host name of SMTP e-mail server.
+SNMPItem=snEmailSMTPPort|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.21.0|02|Number of TCP port to which the SMTP e-mail server will listen.
+SNMPItem=snEmailEnable|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.22.0|02|E-mail functionality for sending a message when a trap is generated.
+SNMPItem=snEmailAddress|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.23.0|04|E-mail address to which messages will be sent.
+SNMPItem=snSNMPReadOnly|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.24.0|02|Determines whether some SNMPv1/v2c Agents may write variables on this device
+SNMPItem=snInfoMLFBNr|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.8.26.0|04|The MLFB number of this product.
+
+[iScalanceX200Mib snTcpIp]
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100).snCommon(1).snTcpIp(10)
+SNMPItem=snIpAddress|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.10.2.0|40|IP address to be used for the agent after reset of the system.
+SNMPItem=snIpSubnetMask|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.10.3.0|40|IP subnet mask to be used by the agent after reset of the system.
+SNMPItem=snIpDefaultGateway|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.10.4.0|40|IP address of the default gateway to be used by the agent after next reset of the system.
+SNMPItem=snDhcp|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.10.6.0|02|The value enabled_via_mac_address(3) runs DHCP, enabled_via_client_id(4) runs DHCP with option ClientId, enabled_via_sysname(5) runs DHCP with the sysname as ClientId. The value disabled(2) will inhibit DHCP.
+SNMPItem=snClientId|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.10.7.0|04|
+SNMPItem=snDcp|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.10.8.0|02|The value enabled(1) will automatically run DCP (Detection & Configuration Protocoll). The value disabled(2) will inhibit DCP.
+SNMPItem=snMacAddressBase|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.10.10.0|04|MAC address base of the SCALANCE X-200.
+
+[iScalanceX200Mib snCPlug]
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100).snCommon(1).snCPlug(11)
+SNMPItem=snCPlugStatus|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.11.1.0|02|Current status of the C-PLUG: accepted(1) C-PLUG is completely accepted (and used) by this device. not-present(2) C-PLUG is (physically) not present. not-accepted(3) C-PLUG is not accepted (reason unknown). not-accepted-crc-error(4) C-PLUG is not accepted, because header CRC is wrong. not-accepted-group-error(5) C-PLUG is not accepted, reason: device group mis-match, see snCPlugGroupDetected for details. not-accepted-type-error(6) C-PLUG is not accepted, reason: device type mismatch, see snCPlugDeviceDetected for details. not-accepted-version-error(7) C-PLUG is not accepted, wrong configuration revision, see snCPlugConfigRevision for details. not-accepted-fstype-error(8) C-PLUG is not accepted, reason: wrong flash file sytem, see snCPlugFilesysType for details. not-accepted-config-error(9) C-PLUG is not accepted, because unable to load configuration.
+SNMPItem=snCPlugGroupDetected|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.11.2.0|04|Device group that is currently read from C-PLUG: 'EMPTY' detect a cleaned or a new C-PLUG. 'SCALANCE X-400' detect a C-PLUG that is formatted for X-400 series. 'SCALANCE X-200' detect a C-PLUG that is formatted for X-200 series. 'SCALANCE W-700' detect a C-PLUG that is formatted for W-700series. 'SCALANCE S-600' detect a C-PLUG that is formatted for S-600 series. 'CP300' detect a C-PLUG that is formatted for CP300 series. 'CP400' detect a C-PLUG that is formatted for CP400 series. 'IE/PB-Link' detect a C-PLUG that is formatted for IE/PB-Link series. 'IE/ASi-Link' detect a C-PLUG that is formatted for IE/ASi-Link series. 'SINAUT' detect a C-PLUG that is formatted for SIMAUT series. 'UNKNOWN' detect a C-PLUG with an unknown (could be too new) device group. 'ERROR' detect a C-PLUG with an invalid device group value.
+SNMPItem=snCPlugDeviceDetected|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.11.3.0|04|Device type that is currently read from the C-PLUG: this value Depends on the device group, and could be (for example): 'SCALANCE X414-3E' 'SCALANCE X408-2' 'SCALANCE X208' ... 'SCALANCE W788-1PRO' . 'CP 443-1 Advanced' .
+SNMPItem=snCPlugConfigRevision|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.11.4.0|02|Device/group configuration revision found on the C-PLUG: Each device or device group has its own configuration revision value to decide wether a C-PLUG data could be accepted, has to be migrated or could not be used at all. A value (0) means error, a value (255) means empty.
+SNMPItem=snCPlugFilesysType|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.11.5.0|02|Type of the filesystem on the C-PLUG flash.
+SNMPItem=snCPlugFilesysSize|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.11.6.0|02|Maximum size of the filesystem on the C-PLUG flash in bytes.
+SNMPItem=snCPlugFilesysUsage|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.11.7.0|02|Current usage of the filesystem on the C-PLUG flash in bytes.
+SNMPItem=snCPlugInfoString|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.11.8.0|04|Shows the information string stored in the C-PLUG
+SNMPItem=snCPlugFormat|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.11.9.0|02|Modify content of the C-PLUG as follows: format-int(2) format the C-PLUG for this device and copy device internal values into C-PLUG (if internal values are present). May be supported only by some devices. format-def(3) format the C-PLUG for this device and copy default values into C-PLUG (if any default values are defined). May be supported only by some devices. Restart required. clean(4) format the C-PLUG (physically), thsi will result in a complete empty C-PLUG (if you remove C-PLUG after next power down).
+
+[iScalanceX200Mib snTime]
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100).snCommon(1).snTime(12)
+SNMPItem=snTimeClientEnable|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.12.1.0|02|Enables/Disables Time Client.
+SNMPItem=snTimeClientType|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.12.2.0|02|Choose type of time client
+SNMPItem=snTimeServer|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.12.3.0|04|IP Address or host name of the SNTP server (x.y.z.w).
+SNMPItem=snTimeServerPort|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.12.4.0|02|Port of the SNTP server host. Dafault value is 123.
+SNMPItem=snTimeShift|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.12.5.0|02|Time difference between SNTP server and switch time.
+SNMPItem=snTimeClientPollInitInterval|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.12.6.0|02|Polling interval of SNTP requests before time was read from server. Can be set from 1000 ms to 100000 ms
+SNMPItem=snTimeClientPollInterval|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.12.7.0|02|Polling interval of SNTP requests after time was ever read from server. Can be set from 10 sec to 100000 sec
+SNMPItem=snTimeSetManually|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.1.12.8.0|04|Show/Set MMM DD hh:mm:ss YYYY- date and time of the switch.
+SNMPItem=snTimeCurrent|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.12.9.0|04|Show date and time of the switch in following format: MMM DD hh:mm:ss YYYY.
+SNMPItem=snTimeLastTime|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.12.10.0|04|Shows the last time when the snSwitchTime was set.
+SNMPItem=snTimeLastTimeType|R|.1.3.6.1.4.1.4196.1.1.5.2.100.1.12.11.0|02|Mechanism, which set the snSwitchTime at last.
+
+[iScalanceX200Mib snX200Common]
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100).snProductSpecific(2).snX200Common(1)
+SNMPItem=snConfigId|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.100.0|02|SCALANCE X200 hardware and configuration type. scalanceX200Group - type unknown, scalanceX206-1 - 6 electric and 1 optic port, scalanceX204-2 - 4 electric and 2 optic ports, scalanceX208 - 8 electric ports, scalanceX208PRO - 8 electric ports in IP65, scalanceX204IRT - 4 electric ports with IRT, scalanceX202-2IRT - 2 electric ports and 2 optic ports with IRT, 
+SNMPItem=snX200AuthFailureValue|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.55.0|04|Description of the last snX200AuthFailure Trap
+SNMPItem=snX200FaultState|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.2.0|02|Indicates SCALANCE X200 fault state (state of fault LED/signaling contact)
+SNMPItem=snX200FaultValue|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.4.0|04|Fault value: 0 = no fault, bit 0 = no redundancy power bit 2 = internal error, bit 3 = Standby manager error, only for SCALANCE X-200IRT Devices/ bit 8 = Link down on port 1, bit 9 = Link down on port 2, bit 10 = Link down on port 3, bit 11 = Link down on port 4, bit 12 = Link down on port 5, only for SCALANCE X-200 Devices/ bit 13 = Link down on port 6, only for SCALANCE X-200 Devices/ bit 14 = Link down on port 7, only for SCALANCE X-200 Devices/ bit 15 = Link down on port 8, only for SCALANCE X-200 Devices/ bit 17 = non-recoverable ring error, only for SCALANCE X-200IRT Devices/ bit 26 = Cold/Warm start, bit 27 = C-PLUG error, bit 29 = Redundnacy manager error, only for SCALANCE X-200IRT Devices/ bit 30 = PNIO Error - C-PLUG not exists, bit 31 = PNIO Error - C-PLUG Error bit 32 = Link up on port 1, only for SCALANCE X-200IRT Devices/ bit 33 = Link up on port 2, only for SCALANCE X-200IRT Devices/ bit 34 = Link up on port 3, only for SCALANCE X-200IRT Devices/ bit 35 = Link up on port 4, only for SCALANCE X-200IRT Devices/ The length of the fault value is 4 bytes for SCALANCE X-200 devices and 5 bytes for SCALANCE X-200IRT Devices.
+SNMPItem=snX200PowerFaultMaskState|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.60.0|02|Mask for checking power state. If a power will be not redundance then a fault will be generated.
+SNMPItem=snX200PowerSupplyState|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.41.0|02|State of power supply.
+SNMPItem=snX200SignalledFaults|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.3.0|41|Number of signalled faults.
+
+SNMPItem=snX200EventAuthenticationFailure.1|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.5.1|02|Enables/Disables authentication failure notification (There is no Fault notification).
+SNMPItem=snX200EventAuthenticationFailure.2|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.5.2|02|Enables/Disables authentication failure notification (There is no Fault notification).
+SNMPItem=snX200EventAuthenticationFailure.3|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.5.3|02|Enables/Disables authentication failure notification (There is no Fault notification).
+SNMPItem=snX200EventAuthenticationFailure.4|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.5.4|02|Enables/Disables authentication failure notification (There is no Fault notification).
+SNMPItem=snX200EventAuthenticationFailure.5|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.5.5|02|Enables/Disables authentication failure notification (There is no Fault notification).
+SNMPItem=snX200EventAuthenticationFailure.6|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.5.6|02|Enables/Disables authentication failure notification (There is no Fault notification).
+SNMPItem=snX200EventAuthenticationFailure.7|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.5.7|02|Enables/Disables authentication failure notification (There is no Fault notification).
+SNMPItem=snX200EventAuthenticationFailure.8|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.5.8|02|Enables/Disables authentication failure notification (There is no Fault notification).
+SNMPItem=snX200EventAuthenticationFailure.9|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.5.9|02|Enables/Disables authentication failure notification (There is no Fault notification).
+SNMPItem=snX200EventAuthenticationFailure.10|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.5.10|02|Enables/Disables authentication failure notification (There is no Fault notification).
+SNMPItem=snX200EventColdWarmStart.1|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.2.1|02|Enables/Disables cold/warm start notification.
+SNMPItem=snX200EventColdWarmStart.2|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.2.2|02|Enables/Disables cold/warm start notification.
+SNMPItem=snX200EventColdWarmStart.3|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.2.3|02|Enables/Disables cold/warm start notification.
+SNMPItem=snX200EventColdWarmStart.4|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.2.4|02|Enables/Disables cold/warm start notification.
+SNMPItem=snX200EventColdWarmStart.5|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.2.5|02|Enables/Disables cold/warm start notification.
+SNMPItem=snX200EventColdWarmStart.6|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.2.6|02|Enables/Disables cold/warm start notification.
+SNMPItem=snX200EventColdWarmStart.7|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.2.7|02|Enables/Disables cold/warm start notification.
+SNMPItem=snX200EventColdWarmStart.8|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.2.8|02|Enables/Disables cold/warm start notification.
+SNMPItem=snX200EventColdWarmStart.9|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.2.9|02|Enables/Disables cold/warm start notification.
+SNMPItem=snX200EventColdWarmStart.10|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.2.10|02|Enables/Disables cold/warm start notification.
+SNMPItem=snX200EventFault.1|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.9.1|02|Enables/Disables fault notification (There is no Fault notification).
+SNMPItem=snX200EventFault.2|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.9.2|02|Enables/Disables fault notification (There is no Fault notification).
+SNMPItem=snX200EventFault.3|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.9.3|02|Enables/Disables fault notification (There is no Fault notification).
+SNMPItem=snX200EventFault.4|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.9.4|02|Enables/Disables fault notification (There is no Fault notification).
+SNMPItem=snX200EventFault.5|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.9.5|02|Enables/Disables fault notification (There is no Fault notification).
+SNMPItem=snX200EventFault.6|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.9.6|02|Enables/Disables fault notification (There is no Fault notification).
+SNMPItem=snX200EventFault.7|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.9.7|02|Enables/Disables fault notification (There is no Fault notification).
+SNMPItem=snX200EventFault.8|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.9.8|02|Enables/Disables fault notification (There is no Fault notification).
+SNMPItem=snX200EventFault.9|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.9.9|02|Enables/Disables fault notification (There is no Fault notification).
+SNMPItem=snX200EventFault.10|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.9.10|02|Enables/Disables fault notification (There is no Fault notification).
+SNMPItem=snX200EventIndex.1|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.1.1|02|Index of columns : E-Mail = 1, Traps = 2, LogTable = 3, Fault state = 4
+SNMPItem=snX200EventIndex.2|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.1.2|02|Index of columns : E-Mail = 1, Traps = 2, LogTable = 3, Fault state = 4
+SNMPItem=snX200EventIndex.3|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.1.3|02|Index of columns : E-Mail = 1, Traps = 2, LogTable = 3, Fault state = 4
+SNMPItem=snX200EventIndex.4|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.1.4|02|Index of columns : E-Mail = 1, Traps = 2, LogTable = 3, Fault state = 4
+SNMPItem=snX200EventIndex.5|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.1.5|02|Index of columns : E-Mail = 1, Traps = 2, LogTable = 3, Fault state = 4
+SNMPItem=snX200EventIndex.6|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.1.6|02|Index of columns : E-Mail = 1, Traps = 2, LogTable = 3, Fault state = 4
+SNMPItem=snX200EventIndex.7|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.1.7|02|Index of columns : E-Mail = 1, Traps = 2, LogTable = 3, Fault state = 4
+SNMPItem=snX200EventIndex.8|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.1.8|02|Index of columns : E-Mail = 1, Traps = 2, LogTable = 3, Fault state = 4
+SNMPItem=snX200EventIndex.9|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.1.9|02|Index of columns : E-Mail = 1, Traps = 2, LogTable = 3, Fault state = 4
+SNMPItem=snX200EventIndex.10|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.1.10|02|Index of columns : E-Mail = 1, Traps = 2, LogTable = 3, Fault state = 4
+SNMPItem=snX200EventLinkChange.1|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.3.1|02|Enables/Disables link up notification (There is no Fault notification).
+SNMPItem=snX200EventLinkChange.2|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.3.2|02|Enables/Disables link up notification (There is no Fault notification).
+SNMPItem=snX200EventLinkChange.3|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.3.3|02|Enables/Disables link up notification (There is no Fault notification).
+SNMPItem=snX200EventLinkChange.4|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.3.4|02|Enables/Disables link up notification (There is no Fault notification).
+SNMPItem=snX200EventLinkChange.5|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.3.5|02|Enables/Disables link up notification (There is no Fault notification).
+SNMPItem=snX200EventLinkChange.6|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.3.6|02|Enables/Disables link up notification (There is no Fault notification).
+SNMPItem=snX200EventLinkChange.7|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.3.7|02|Enables/Disables link up notification (There is no Fault notification).
+SNMPItem=snX200EventLinkChange.8|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.3.8|02|Enables/Disables link up notification (There is no Fault notification).
+SNMPItem=snX200EventLinkChange.9|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.3.9|02|Enables/Disables link up notification (There is no Fault notification).
+SNMPItem=snX200EventLinkChange.10|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.3.10|02|Enables/Disables link up notification (There is no Fault notification).
+SNMPItem=snX200EventPowerChange.1|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.6.1|02|Enables/Disables power change notification.
+SNMPItem=snX200EventPowerChange.2|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.6.2|02|Enables/Disables power change notification.
+SNMPItem=snX200EventPowerChange.3|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.6.3|02|Enables/Disables power change notification.
+SNMPItem=snX200EventPowerChange.4|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.6.4|02|Enables/Disables power change notification.
+SNMPItem=snX200EventPowerChange.5|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.6.5|02|Enables/Disables power change notification.
+SNMPItem=snX200EventPowerChange.6|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.6.6|02|Enables/Disables power change notification.
+SNMPItem=snX200EventPowerChange.7|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.6.7|02|Enables/Disables power change notification.
+SNMPItem=snX200EventPowerChange.8|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.6.8|02|Enables/Disables power change notification.
+SNMPItem=snX200EventPowerChange.9|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.6.9|02|Enables/Disables power change notification.
+SNMPItem=snX200EventPowerChange.10|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.62.1.6.10|02|Enables/Disables power change notification.
+
+SNMPItem=snX200PortFaultMaskState.1|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.2.1|02|Mask for checking link state of the port. If a link of a unmasked (checked) port is down then a fault will be generated.
+SNMPItem=snX200PortFaultMaskState.2|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.2.2|02|Mask for checking link state of the port. If a link of a unmasked (checked) port is down then a fault will be generated.
+SNMPItem=snX200PortFaultMaskState.3|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.2.3|02|Mask for checking link state of the port. If a link of a unmasked (checked) port is down then a fault will be generated.
+SNMPItem=snX200PortFaultMaskState.4|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.2.4|02|Mask for checking link state of the port. If a link of a unmasked (checked) port is down then a fault will be generated.
+SNMPItem=snX200PortFaultMaskState.5|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.2.5|02|Mask for checking link state of the port. If a link of a unmasked (checked) port is down then a fault will be generated.
+SNMPItem=snX200PortFaultMaskState.6|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.2.6|02|Mask for checking link state of the port. If a link of a unmasked (checked) port is down then a fault will be generated.
+SNMPItem=snX200PortFaultMaskState.7|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.2.7|02|Mask for checking link state of the port. If a link of a unmasked (checked) port is down then a fault will be generated.
+SNMPItem=snX200PortFaultMaskState.8|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.2.8|02|Mask for checking link state of the port. If a link of a unmasked (checked) port is down then a fault will be generated.
+SNMPItem=snX200PortIndex.1|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.1.1|02|Unique number for each interface. The number is in the range 1 to ifNumber - 2. The number for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re-initialization.
+SNMPItem=snX200PortIndex.2|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.1.2|02|Unique number for each interface. The number is in the range 1 to ifNumber - 2. The number for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re-initialization.
+SNMPItem=snX200PortIndex.3|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.1.3|02|Unique number for each interface. The number is in the range 1 to ifNumber - 2. The number for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re-initialization.
+SNMPItem=snX200PortIndex.4|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.1.4|02|Unique number for each interface. The number is in the range 1 to ifNumber - 2. The number for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re-initialization.
+SNMPItem=snX200PortIndex.5|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.1.5|02|Unique number for each interface. The number is in the range 1 to ifNumber - 2. The number for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re-initialization.
+SNMPItem=snX200PortIndex.6|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.1.6|02|Unique number for each interface. The number is in the range 1 to ifNumber - 2. The number for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re-initialization.
+SNMPItem=snX200PortIndex.7|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.1.7|02|Unique number for each interface. The number is in the range 1 to ifNumber - 2. The number for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re-initialization.
+SNMPItem=snX200PortIndex.8|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1.61.1.1.8|02|Unique number for each interface. The number is in the range 1 to ifNumber - 2. The number for each interface must remain constant at least from one re-initialization of the entity's network management system to the next re-initialization.
+
+[iScalanceX200Mib snX200Common traps]
+Trap=snX200PowerOneLine|STrap.31|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1|500|Power supply is not redundant.
+Trap=snX200PowerRedundance|STrap.32|.1.3.6.1.4.1.4196.1.1.5.2.100.2.1|500|Power supply is redundant.
+
+[iScalanceX200Mib snX200Switch]
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100).snProductSpecific(2).snX200Switch(2)
+SNMPItem=snX200SwitchSnifferDest|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.2.10.0|02|Destination port for traffic mirroring.
+SNMPItem=snX200SwitchSnifferSrc|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.2.11.0|02|Source port for traffic mirroring.
+SNMPItem=snX200SwitchSnifferEnable|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.2.12.0|02|Enable/Disable mirroring functionality.
+
+[iScalanceX200Mib snX200Redundancy]
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100).snProductSpecific(2).snX200Redundancy(4)
+SNMPItem=snX200RingRedundancyMode|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.4.1.0|02|RM mode.
+SNMPItem=snX200RmRingPort1|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.4.5.0|02|Port number of the first ring port. (By SCALANCE X-200IRT it is static port)
+SNMPItem=snX200RmRingPort2|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.4.6.0|02|Port number of the second ring port. (By SCALANCE X-200IRT it is isolated port)
+SNMPItem=snX200RmState|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.4.3.0|02|By SCALANCE X-200 is RM State always passive. rmPassive(1) - Redundancy manager is in passive state rmActive(2) - Redundancy manager is in active state rmOtherRM(3) - Redundancy manager is in passive state but other RM was found rmSingleSideReceive(4) - Redundancy manager is in passive state but test frames are received only from one ring port rmDisabled(300) - Redundancy manager is disabled 
+
+[iScalanceX200Mib snX200Standby]
+;Full path: iso(1).org(3).dod(6).internet(1).private(4).enterprises(1).ad(4196).adProductMibs(1).simaticNet(1).iScalanceX(5).iScalanceX200(2).iScalanceX200Mib(100).snProductSpecific(2).snX200Standby(5)
+SNMPItem=snX200StandbyMode|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.5.1.0|02|Standny manager mode/ Enabled or Disabled.
+SNMPItem=snX200StandbyPort|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.5.2.0|02|Port number of the standby port. Cannot be equal to redundancy port.
+SNMPItem=snX200StandbyConnectionName|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.5.3.0|04|The standby connection name (Max 32 Symbol).
+SNMPItem=snX200StandbyState|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.5.4.0|02|Standby manager state. Bit 0 is always 1, bit 1 is Master/Slave, bit 2 is Active/Passive and bit 8 is Partner not found or not. standbyMasterPassive(1) - Master in passive state standbySlavePassive(3) - Slave in passive state standbyMasterActive(5) - Master in active state standbySlaveActive(7) - Slave in passive state standbyMasterPassive-lost(17) - Master in passive state but partner is lost standbySlavePassive-lost(19) - Slave in passive state but partner is lost standbyMasterActive-lost(21) - Master in active state but partner is lost standbySlaveActive-lost(23) - Slave in passive state but partner is lost standbyWrongPartnerVersion(256) - The standby manager partner has wrong version standbyWatingForPartner(257) - Wating for partner, partner was not yet found standbyAmbiguousError(258) - Stanby manager found more than one partner standbyDisabled(300) - Standby Manager is disabled
+SNMPItem=snX200StandbyStateChanges|R|.1.3.6.1.4.1.4196.1.1.5.2.100.2.5.5.0|41|Number of changes to Standby Manager active state.
+SNMPItem=snX200StandbyResetCounters|RW|.1.3.6.1.4.1.4196.1.1.5.2.100.2.5.6.0|02|Reset all counters of Standby protocol software.
