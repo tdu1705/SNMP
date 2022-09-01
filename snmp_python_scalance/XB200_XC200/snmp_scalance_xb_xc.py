@@ -24,12 +24,11 @@ result_mflb = get(ip, community, oid)
     #SerialNumber
 oid = '1.3.6.1.4.1.4329.6.3.2.1.1.3.0'
 result_serialnumber = get(ip, community, oid)
-    #nazwa urz�dzenia
+    #nazwa urządzenia
 oid = '1.3.6.1.2.1.1.1.0'
 result_model = get(ip, community, oid)
         #szukanie początku odpowiedniej nazwy
 find_s1 = result_model.find(b'SCALANCE')
-#find_s1 = result_model.partition('SCALANCE')
 result_model = result_model[find_s1:37]
     #Vendor
 oid = '1.3.6.1.2.1.1.2.0'
@@ -42,7 +41,7 @@ result_fwversion = get(ip, community, oid)
     #HW Version
 oid = '1.3.6.1.4.1.4329.6.3.2.1.1.4.0'
 result_hwversion = get(ip, community, oid)
-    #czas dzia�ania urz�dzenia sysUpTime
+    #czas działania urządzenia sysUpTime
 oid = '1.3.6.1.2.1.1.3.0'
 result_uptime = get(ip, community, oid)
 
@@ -123,11 +122,11 @@ if result_mrprole == 1 or result_mrprole == 2 or result_mrprole == 3:
     #czas otwarcia ringu
     oid = '1.0.62439.1.1.1.1.16.1'
     result_timeopenring = get(ip, community, oid)
-    #???? Maksymalny czas przelaczenia???
+    #Maksymalny czas przelaczenia
     oid = '1.0.62439.1.1.1.1.17.1'
     result_tripdelaymax = get(ip, community, oid)
 
-    #???? Minimalny czas przelaczenia???
+    #Minimalny czas przelaczenia
     oid = '1.0.62439.1.1.1.1.18.1'
     result_tripdelaymin = get(ip, community, oid)
 
