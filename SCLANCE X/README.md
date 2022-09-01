@@ -1,4 +1,4 @@
-## PL 
+# PL 
 Pobieranie informacji za pomocą SNMP ze switchy SCALANCE X.
 
 Pobieranie informacji:
@@ -26,5 +26,5 @@ Pobieranie informacji:
 22. Maksymalny czas przełączenia ringu
 23. Minimalny czas przełączenia ringu
 
-## ENG
+# ENG
 Getting information via SNMP from SCALANCE X switches.
