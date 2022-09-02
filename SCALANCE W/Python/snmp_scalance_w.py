@@ -51,5 +51,3 @@ data = {'opis': ['SysName','SysContact','SysLocation','MFLB','Model','SerialNumb
 
 df = pd.DataFrame(data)
 print(df)
-#
-
