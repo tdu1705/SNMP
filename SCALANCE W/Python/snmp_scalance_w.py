@@ -45,6 +45,9 @@ result_hwversion = get(ip, community, oid)
 oid = '1.3.6.1.2.1.1.3.0'
 result_uptime = get(ip, community, oid)
 
+#infomacje o podłączonych klientach
+
+    
 data = {'opis': ['SysName','SysContact','SysLocation','MFLB','Model','SerialNumber','Vendor','FW Version','HW Version','Czas dzialania switcha od uruchomienia'],
         'informacja ze switcha': [result_sysname,result_syscontact,result_syslocation,result_mflb,result_model,result_serialnumber,result_vendor,result_fwversion,result_hwversion,\
                                 result_uptime]}
