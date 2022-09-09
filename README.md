@@ -1,5 +1,7 @@
 # SNMP
 
+Użyta bibliotek/Use Library puresnmp v1.11.0post1
+
 ## PL 
 Pobieranie informacji za pomocą SNMP ze switchy SCALANCE X.
 
